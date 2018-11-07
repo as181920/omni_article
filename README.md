@@ -1,24 +1,18 @@
 # OmniArticle
-Short description and motivation.
+通用文章功能(Rails engine)
 
 ## Usage
-How to use my plugin.
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'omni_article'
+gem 'omni_article', git: "git@github.com:as181920/omni_article.git", branch: "master"
 ```
 
 And then execute:
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install omni_article
 ```
 
 ## Contributing
