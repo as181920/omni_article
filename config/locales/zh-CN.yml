@@ -40,6 +40,7 @@ zh-CN:
     reauthorize: "重新授权"
     none: "无"
     not_set: "未设置"
+    not_exist: "不存在"
     show_all: "显示全部"
     authorize_success: "验证成功"
     authorize_fail: "验证失败"

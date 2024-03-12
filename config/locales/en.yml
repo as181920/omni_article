@@ -40,6 +40,7 @@ en:
     reauthorize: "Reauthorize"
     none: "None"
     not_set: "Not set"
+    not_exist: "Not exist"
     show_all: "Show all"
     authorize_success: "Authorize success"
     authorize_fail: "Authorize fail"

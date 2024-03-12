@@ -1,6 +1,6 @@
 module OmniArticle
   class Admin::BaseController < ApplicationController
-    include AuthGuard
+    include Admin::AuthGuard
     include Pundit::Authorization
     include ShortUrl::UrlUtility
 

@@ -1,5 +1,5 @@
 module OmniArticle
-  module AuthGuard
+  module User::AuthGuard
     extend ActiveSupport::Concern
 
     InvalidAuthTypeError = Class.new(StandardError)
@@ -7,11 +7,10 @@ module OmniArticle
     AuthenticateFailError = Class.new(StandardError)
 
     included do
-      before_action :authenticate
       after_action :verify_authorized, except: :index
       after_action :verify_policy_scoped, only: :index
 
-      helper_method :current_user, :current_tenant
+      helper_method :current_user
 
       rescue_from AuthenticateFailError, InvalidAuthTypeError, InvalidAuthValueError, with: :handle_authenticate_failure
       rescue_from Pundit::NotAuthorizedError, with: :handle_authorize_failure
@@ -22,26 +21,12 @@ module OmniArticle
 
     private
 
-      def authenticate
-        raise AuthenticateFailError, "authenticate failed." if current_user.blank?
-      end
+      # def authenticate
+      #   raise AuthenticateFailError, "authenticate failed." if current_user.blank?
+      # end
 
       def current_user
-        @current_user ||= auth_params.present? ? authenticate_user : session_user
-      end
-
-      def current_tenant
-        @current_tenant ||= current_user&.tenant if current_user.instance_of?(::TenantAuth::User)
-      end
-
-      def authenticate_user
-        return session_user if auth_params[:type].underscore == "basic"
-
-        UserAuthService.authenticate_user(auth_params)
-      end
-
-      def session_user
-        UserAuthService.session_user(session.to_h)
+        @current_user ||= nil
       end
 
       def auth_params
