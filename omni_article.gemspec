@@ -22,6 +22,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "addressable"
   spec.add_dependency "base58"
+  spec.add_dependency "breadcrumbs_on_rails"
+  spec.add_dependency "jbuilder"
+  spec.add_dependency "kaminari"
   spec.add_dependency "pundit"
   spec.add_dependency "rails", ">= 7.1"
+  spec.add_dependency "ransack"
 end

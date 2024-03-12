@@ -89,6 +89,18 @@ ActiveRecord::Schema[7.1].define(version: 2099_09_05_112806) do
     t.index ["uid"], name: "index_omni_article_articles_on_uid", unique: true
   end
 
+  create_table "omni_comment_comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.string "commenter_type"
+    t.bigint "commenter_id"
+    t.text "content"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_omni_comment_comments_on_commentable"
+    t.index ["commenter_type", "commenter_id"], name: "index_omni_comment_comments_on_commenter"
+  end
+
   create_table "omni_pay_payment_methods", force: :cascade do |t|
     t.string "owner_type"
     t.bigint "owner_id"

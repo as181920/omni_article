@@ -1,0 +1,18 @@
+<%= search_form_for q, url: url_for, class: "form" do |form| %>
+  <div class="d-inline-block me-3 mb-1">
+    <%= form.number_field :id_eq,
+      placeholder: OmniArticle::Article.human_attribute_name(:id),
+      class: "form-control w-6" %>
+  </div>
+
+  <div class="d-inline-block me-3 mb-1">
+    <%= form.text_field :title_cont,
+      placeholder: OmniArticle::Article.human_attribute_name(:title),
+      class: "form-control" %>
+  </div>
+
+  <%= form.button class: "btn btn-primary" do %>
+    <%= tag.span class: "loading-spinner" %>
+    <%= tag.span t("omni_article.search") %>
+  <% end %>
+<% end %>

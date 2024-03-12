@@ -1,0 +1,4 @@
+one:
+  owner: one (TenantAuth::Tenant)
+  title: "OMNI ARTICLE TITLE ONE"
+  content: "<p>OMNI ARTICLE CONTENT ONE</p>"

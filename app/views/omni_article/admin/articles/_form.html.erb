@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-body">
+    <%= tag.h3 do %>
+      <%= tag.span OmniArticle::Article.model_name.human %>
+      <% if article.new_record? %>
+        <%= tag.span t("omni_article.new"), class: "badge bg-gray text-secondary ms-2" %>
+      <% else %>
+        <%= tag.span article.id, class: "badge badge-pill bg-info ms-2" %>
+      <% end %>
+    <% end %>
+
+    <%= form_with model: [:admin, article],
+      data: { controller: "form" },
+      id: "article-form",
+      class: "form" do |form| %>
+
+      <div class="form-field">
+        <div class="d-inline-block min-w-6">
+          <%= form.label :title, OmniArticle::Article.human_attribute_name(:title), class: "form-label" %>
+          <%= tag.span "*", class: "text-danger me-3" %>
+        </div>
+        <%= form.text_field :title,
+          data: { action: "form#validateField" },
+          class: "form-control",
+          required: true %>
+        <%= tag.div t("omni_article.required"), class: "invalid-feedback" %>
+      </div>
+
+      <div class="form-field">
+        <div class="d-inline-block min-w-6">
+          <%= form.label :content, OmniArticle::Article.human_attribute_name(:content), class: "form-label" %>
+          <%= tag.span "*", class: "text-danger me-3" %>
+        </div>
+        <div>
+          <%= form.text_area :content,
+            data: { action: "form#autoGrow" },
+            class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-field align-items-center">
+        <div class="d-inline-block min-w-6"></div>
+
+        <%= button_tag form: "article-form", data: { action: "form#validateForm" }, class: "btn btn-primary me-3" do %>
+          <%= tag.span class: "loading-spinner" %>
+          <%= tag.span t("omni_article.submit") %>
+        <% end %>
+
+        <%= link_to t("omni_article.cancel"), :back, class: "btn btn-secondary me-3" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div data-controller="table-responsive" class="table-responsive">
+  <table data-table-responsive-target="table" class="table w-100">
+    <thead>
+      <tr>
+        <%= tag.th sort_link(@q, :id, OmniArticle::Article.human_attribute_name(:id), default_order: :asc, class: "text-decoration-none text-info") %>
+        <%= tag.th OmniArticle::Article.human_attribute_name(:title) %>
+        <%= tag.th t("omni_article.url") %>
+        <%= tag.th sort_link(@q, :updated_at, OmniArticle::Article.human_attribute_name(:updated_at), default_order: :desc, class: "text-decoration-none text-info") %>
+        <%= tag.th t("omni_article.handle") %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% articles.each do |article| %>
+        <tr class="text-align-center">
+          <%= tag.th article.id, scope: "row", class: "py-3" %>
+
+          <%= tag.td article.title %>
+
+          <%= tag.td do %>
+            <%= link_to [:admin, article, :entry], data: { turbo_frame: "modal" }, class: "icon-text text-info p-2" do %>
+              <%= tag.span inline_svg_tag("easy_style/icon_qrcode.svg") %>
+            <% end %>
+          <% end %>
+
+          <%= tag.td l(article.updated_at, format: :long), class: "" %>
+
+          <td>
+            <% if policy([:omni_article, :admin, article]).show? %>
+              <%= link_to t("omni_article.follow_up"), admin_article_path(article), class: "btn btn-secondary btn-sm m-1" %>
+            <% end %>
+
+            <% if policy([:omni_article, :admin, article]).edit? %>
+              <%= link_to t("omni_article.edit"), edit_admin_article_path(article), class: "btn btn-secondary btn-sm m-1" %>
+            <% end %>
+
+            <% if policy([:omni_article, :admin, article]).destroy? %>
+              <%= button_to admin_article_path(article),
+                method: :delete,
+                form: { data: { turbo_confirm: t("omni_article.confirm_delete") } },
+                form_class: "btn-form",
+                class: "btn btn-secondary btn-sm m-1" do %>
+                <%= tag.span class: "loading-spinner" %>
+                <%= tag.span t("omni_article.destroy") %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+      <%= tag.tr tag.td t("omni_article.none"), colspan: 5, class: "text-align-center py-2" if articles.blank? %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate articles, theme: "easy_style" %>
+
+<%= turbo_frame_tag "modal", target: "_top" %>

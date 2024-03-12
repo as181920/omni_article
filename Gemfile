@@ -26,6 +26,7 @@ gem "propshaft"
 gem "puma"
 
 gem "omni_account", git: "git@gitlab.dd-life.com:shared/omni_account.git", branch: "master"
+gem "omni_comment", git: "git@gitlab.dd-life.com:shared/omni_comment.git", branch: "master"
 gem "omni_pay", git: "git@gitlab.dd-life.com:shared/omni_pay.git", branch: "master"
 gem "omni_region", git: "git@gitlab.dd-life.com:shared/omni_region.git", branch: "master"
 gem "omni_role", git: "git@gitlab.dd-life.com:shared/omni_role.git", branch: "master"

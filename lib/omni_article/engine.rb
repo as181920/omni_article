@@ -1,6 +1,10 @@
-require "pundit"
-require "base58"
 require "addressable/uri"
+require "base58"
+require "breadcrumbs_on_rails"
+require "jbuilder"
+require "kaminari"
+require "pundit"
+require "ransack"
 
 module OmniArticle
   class Engine < ::Rails::Engine

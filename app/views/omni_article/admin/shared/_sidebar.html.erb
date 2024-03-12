@@ -1,0 +1,19 @@
+<%= tag.div data: { controller: "dropdown-menu" }, class: "sidebar" do %>
+  <header>
+    <div class="logo"></div>
+    <%= tag.h3 t("omni_article.engine") %>
+  </header>
+
+  <div class="menu-container">
+    <%= tag.div class: ["menu-item", nav_link_state(/#{omni_article.admin_articles_path}/)] do %>
+      <%= link_to omni_article.admin_articles_path do %>
+        <%= tag.span inline_svg_tag("easy_style/icon_list.svg") %>
+        <%= tag.span OmniArticle::Article.model_name.human %>
+      <% end %>
+    <% end %>
+
+    <%= tag.div "MENU-TITLE", class: "menu-title d-none" %>
+
+    <div class="menu-title d-none">其它</div>
+  </div>
+<% end %>

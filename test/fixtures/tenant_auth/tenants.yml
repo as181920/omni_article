@@ -1,0 +1,6 @@
+one:
+  organization: one
+  uid: "TENANT_AUTH_TENANT_UID_ONE"
+  name: "tenant one"
+  state: "active"
+  custom_settings: {}

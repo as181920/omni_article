@@ -23,6 +23,14 @@ GIT
       rails (>= 6.1)
 
 GIT
+  remote: git@gitlab.dd-life.com:shared/omni_comment.git
+  revision: cc96fb2fca7bad2ff4cc9422a756eb2b9d4bf162
+  branch: master
+  specs:
+    omni_comment (0.1.1)
+      rails (>= 6.1)
+
+GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
   revision: aaea3518b74be41dfe8361d4af1dae65cf055e86
   branch: master
@@ -146,8 +154,12 @@ PATH
     omni_article (0.2.0)
       addressable
       base58
+      breadcrumbs_on_rails
+      jbuilder
+      kaminari
       pundit
       rails (>= 7.1)
+      ransack
 
 GEM
   remote: https://rubygems.org/
@@ -558,6 +570,7 @@ DEPENDENCIES
   mocha
   omni_account!
   omni_article!
+  omni_comment!
   omni_pay!
   omni_region!
   omni_role!

@@ -2,7 +2,11 @@ OmniArticle::Engine.routes.draw do
   get "welcome/index"
 
   namespace :admin do
-    resources :articles
+    resources :articles do
+      scope module: :articles do
+        resource :entry, only: %i[show]
+      end
+    end
   end
 
   namespace :user do
