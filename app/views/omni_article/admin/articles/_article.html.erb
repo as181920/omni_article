@@ -6,24 +6,24 @@
     <% end %>
 
     <div class="row text-align-center">
-      <div class="col">
+      <div class="col w-100">
         <%= tag.div article.title, class: "card-title" %>
       </div>
     </div>
 
     <div class="row text-align-center">
-      <div class="col">
+      <div class="col w-100">
         <%= tag.div l(article.updated_at, format: :long), class: "text-secondary" %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col">
-        <%= article.content %>
+      <div class="col w-100">
+        <%= tag.div article.content %>
       </div>
     </div>
 
-    <div class="form-field align-items-center">
+    <div class="form-field align-items-center mt-5">
       <% if policy([:omni_article, :admin, article]).edit? %>
         <%= link_to t("omni_article.edit"), edit_admin_article_path(article), class: "btn btn-primary me-3" %>
       <% end %>

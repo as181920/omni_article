@@ -1,4 +1,13 @@
 GIT
+  remote: git@gitlab.dd-life.com:common_utility/short_url.git
+  revision: aa1cb47586b9467a931da31cd862886b04f68e95
+  branch: master
+  specs:
+    short_url (0.1.1)
+      addressable
+      rails (>= 7.1)
+
+GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
   revision: c63c7c896a934198d122f1dbb4038f962636c81c
   branch: main
@@ -586,6 +595,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rake
   selenium-webdriver
+  short_url!
   tenant_auth!
   user_auth!
   webmock

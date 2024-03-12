@@ -328,6 +328,12 @@ ActiveRecord::Schema[7.1].define(version: 2099_09_05_112806) do
     t.index ["app_id"], name: "index_owx_website_apps_on_app_id", unique: true
   end
 
+  create_table "short_url_links", force: :cascade do |t|
+    t.text "original_url"
+    t.datetime "created_at", precision: nil, null: false
+    t.index ["original_url"], name: "index_short_url_links_on_original_url", unique: true
+  end
+
   create_table "tnt_domains", force: :cascade do |t|
     t.bigint "tenant_id"
     t.string "name"

@@ -27,7 +27,7 @@
 
           <td>
             <% if policy([:omni_article, :admin, article]).show? %>
-              <%= link_to t("omni_article.follow_up"), admin_article_path(article), class: "btn btn-secondary btn-sm m-1" %>
+              <%= link_to t("omni_article.show"), admin_article_path(article), class: "btn btn-secondary btn-sm m-1" %>
             <% end %>
 
             <% if policy([:omni_article, :admin, article]).edit? %>

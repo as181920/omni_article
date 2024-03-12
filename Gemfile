@@ -40,6 +40,8 @@ gem "user_auth", git: "git@gitlab.dd-life.com:shared/user_auth.git", branch: "ma
 gem "tenant_auth", git: "git@gitlab.dd-life.com:shared/tenant_auth.git", branch: "main"
 gem "organization_auth", git: "git@gitlab.dd-life.com:shared/organization_auth.git", branch: "main"
 
+gem "short_url", git: "git@gitlab.dd-life.com:common_utility/short_url.git", branch: "master"
+
 group :test do
   gem "capybara"
   gem "selenium-webdriver"

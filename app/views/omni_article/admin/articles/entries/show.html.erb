@@ -1,0 +1,35 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { controller: "modal", modal_target: "overlay", action: "click->modal#dismiss" }, class: "modal-overlay" do %>
+    <%= tag.div data: { modal_target: "modal" }, class: "modal" do %>
+
+      <div class="card">
+        <div class="card-body">
+          <%= tag.h3 t("omni_article.url") %>
+
+          <% url_by_shorten(article_url(@article.uid)).then do |url| %>
+            <div class="row">
+              <div class="col-6">
+                <%= tag.div class: "callout border-left-info" do %>
+                  <%= tag.div t("omni_article.qr_code"), class: "card-title" %>
+                  <%= image_tag RQRCode::QRCode.new(url, size: 4, level: :l).as_png(size: 300, border_modules: 0).to_data_url, alt: "", size: "160x160" %>
+                <% end %>
+              </div>
+
+              <div class="col-6">
+                <%= tag.div class: "callout border-left-info" do %>
+                  <%= tag.div t("omni_article.url"), class: "card-title" %>
+                  <%= tag.div url, class: "fw-500" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="w-100 text-align-end">
+            <%= button_tag t("omni_article.close"), data: { action: "modal#close" }, type: "button", class: "btn btn-secondary me-3" %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  <% end %>
+<% end %>
