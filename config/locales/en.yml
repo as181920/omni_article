@@ -1,0 +1,17 @@
+---
+en:
+  omni_article:
+    engine: "Article Platform"
+    welcome: "Welcome"
+  activerecord:
+    models:
+      omni_article/article: "Article"
+    attributes:
+      omni_article/article:
+        id: "ID"
+        uid: "Unique ID"
+        owner: "Owner"
+        title: "Title"
+        content: "Content"
+        created_at: "Created at"
+        updated_at: "Updated at"

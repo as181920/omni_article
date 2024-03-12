@@ -1,0 +1,24 @@
+before_script:
+  - pwd
+  - ruby -v
+  - bundle install -j $(nproc)
+
+stages:
+  - rubocop
+  - test
+
+rubocop:
+  stage: rubocop
+  when: always
+  script:
+    - bin/rails rubocop
+
+test:
+  stage: test
+  script:
+    - bundle install -j $(nproc)
+    - ln -s /home/gitlab-runner/shared/configs/as_projects/omni_engines/omni_article/database.yml ./test/dummy/config/database.yml
+    - bin/rails db:drop RAILS_ENV=test
+    - bin/rails db:create RAILS_ENV=test
+    - bin/rails db:migrate RAILS_ENV=test
+    - bin/rails test

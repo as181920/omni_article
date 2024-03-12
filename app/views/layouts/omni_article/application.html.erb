@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Omni article</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "omni_article/application", media: "all" %>
-  <%= javascript_include_tag "omni_article/application" %>
-</head>
-<body>
+    <title><%= content_for?(:title) ? yield(:title) : t("omni_article.engine") %></title>
 
-<%= yield %>
+    <%= stylesheet_link_tag "easy_style/common", media: "all" %>
+    <%= es_module_shims %>
+    <%= javascript_importmap_tags "easy_style/application" %>
+    <%= javascript_import_module_tag "easy_style/turbo" %>
+    <%= javascript_import_module_tag "easy_style/request" %>
+    <%= javascript_import_module_tag "easy_style/utilities" %>
 
-</body>
+    <%= yield(:head_additions) if content_for?(:head_additions) %>
+  </head>
+  <body>
+
+    <%= content_for?(:custom_flash_messages) ? yield(:custom_flash_messages) : render("easy_style/mobile/shared/flash_messages") %>
+
+    <%= yield %>
+
+  </body>
 </html>
