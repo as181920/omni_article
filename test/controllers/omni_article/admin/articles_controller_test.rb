@@ -25,7 +25,7 @@ module OmniArticle
 
       assert_response :success
       assert_select "form[action='#{admin_articles_path}'] input[type='text'][name='article[title]']", count: 1
-      # TODO: test rich text field
+      assert_select "textarea[name='article[content]'][data-form-target='richText']", count: 1
     end
 
     test "should create admin_article" do
@@ -44,7 +44,7 @@ module OmniArticle
 
       assert_response :success
       assert_includes @response.body, @article.title
-      # TODO: test show rich text content
+      assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
     end
 
     test "should get edit" do
@@ -52,7 +52,7 @@ module OmniArticle
 
       assert_response :success
       assert_select "form[action='#{admin_article_path(@article)}'] input[type='text'][name='article[title]']", count: 1, value: @article.title
-      # TODO: test rich text field, with value
+      assert_select "textarea[name='article[content]'][data-form-target='richText']", value: @article.content, count: 1
     end
 
     test "should update admin_article" do

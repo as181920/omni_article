@@ -12,8 +12,8 @@ module OmniArticle
       get user_article_path(@article.uid)
 
       assert_response :success
-      assert_includes @response.body, @article.title
-      # TODO: check rich text content
+      assert_select "head title", content: @article.title
+      assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
     end
 
     test "should show blank page when article not exist" do

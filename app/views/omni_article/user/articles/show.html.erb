@@ -1,1 +1,9 @@
-<%= @article.title %>
+<%= content_for :title, @article.title %>
+
+<section>
+  <div class="card">
+    <div class="card-body">
+      <%= rich_text_content @article.content %>
+    </div>
+  </div>
+</section>

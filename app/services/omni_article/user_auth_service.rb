@@ -8,8 +8,8 @@ module OmniArticle
     ].freeze
 
     SESSION_KEY_USER_TYPE_MAPPING = {
-      org_user_id: "OrganizationAuth::User",
       tnt_user_id: "TenantAuth::User",
+      org_user_id: "OrganizationAuth::User",
       usr_user_id: "UserAuth::User"
     }.freeze
 

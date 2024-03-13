@@ -43,7 +43,7 @@ module OmniArticle
       authorize [:omni_article, :admin, @article]
 
       if @article.update(article_params)
-        redirect_back fallback_location: [:admin, @article], notice: I18n.t("omni_article.flash.updated_successfully")
+        redirect_to [:admin, @article], notice: I18n.t("omni_article.flash.updated_successfully")
       else
         redirect_back fallback_location: %i[new admin article], alert: @article.errors.full_messages
       end
