@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 76b907bc3ac00b520791174dd2579d835428b468
+  revision: 085283fd006d9db65373f08d26b40850e0b0bce6
   branch: main
   specs:
     easy_style (0.1.0)
