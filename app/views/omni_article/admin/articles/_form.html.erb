@@ -37,7 +37,7 @@
         </div>
         <div class="flex-1">
           <%= form.text_area :content,
-            data: { action: "form#autoGrow", form_target: "richText" },
+            data: { action: "form#validateField", form_target: "richText" },
             class: "form-control" %>
           <%= tag.div t("omni_article.required"), class: "invalid-feedback" %>
         </div>
