@@ -14,7 +14,13 @@
     <% end %>
 
     <%= form_with model: [:admin, article],
-      data: { controller: "form" },
+      data: {
+        controller: "form",
+        form_image_upload_url_value: rich_text_image_upload_url,
+        form_image_list_url_value: rich_text_image_list_url,
+        form_language_url_value: rich_text_language_url,
+        form_locale_value: rich_text_language
+      },
       id: "article-form",
       class: "form" do |form| %>
 
