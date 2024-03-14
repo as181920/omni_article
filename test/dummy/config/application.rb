@@ -17,7 +17,7 @@ module Dummy
 
     config.load_defaults Rails::VERSION::STRING.to_f
 
-    config.action_controller.include_all_helpers = false
+    config.action_controller.include_all_helpers = true
 
     config.autoload_lib(ignore: %w[assets tasks])
 
