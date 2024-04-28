@@ -3,6 +3,10 @@
     <%= tag.h3 do %>
       <%= tag.span OmniArticle::Article.model_name.human %>
       <%= tag.span article.id, class: "badge badge-pill bg-info ms-2" %>
+
+      <%= link_to [:admin, article, :entry], data: { turbo_frame: "modal" }, class: "icon-text text-info ms-2" do %>
+        <%= tag.span inline_svg_tag("easy_style/icon_qrcode.svg"), class: "vertical-align-middle" %>
+      <% end %>
     <% end %>
 
     <div class="row text-align-center">
@@ -32,3 +36,5 @@
     </div>
   </div>
 </div>
+
+<%= turbo_frame_tag "modal", target: "_top" %>
