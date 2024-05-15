@@ -101,3 +101,5 @@ zh-CN:
         content: "内容"
         created_at: "创建于"
         updated_at: "更新于"
+        tag_list: "标签"
+        icon: "图标"

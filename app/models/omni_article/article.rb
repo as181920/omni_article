@@ -4,6 +4,8 @@ module OmniArticle
 
     acts_as_taggable_on :tags
 
+    has_one_attached :icon
+
     belongs_to :owner, polymorphic: true
 
     validates :content, presence: true

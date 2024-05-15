@@ -70,7 +70,12 @@ module OmniArticle
       end
 
       def article_params
-        params.fetch(:article, {}).permit :title, :template, :content
+        params.fetch(:article, {}).permit(
+          :title, :template, :content,
+          :icon, :tag_list
+        ).tap do |permitted_params|
+          permitted_params[:tag_list] = permitted_params[:tag_list].to_s.split(/,|;|，|；|\s+/).compact_blank.join(",")
+        end
       end
   end
 end

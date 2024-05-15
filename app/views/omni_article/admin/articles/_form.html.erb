@@ -50,6 +50,63 @@
       </div>
 
       <div class="form-field align-items-center">
+        <div class="d-inline-block min-w-6">
+          <%= form.label :tag_list, OmniArticle::Article.human_attribute_name(:tag_list), class: "form-label" %>
+        </div>
+        <div class="flex-1">
+          <%= form.text_area :tag_list,
+            value: article.tag_list.join(","),
+            data: { action: "form#validateField form#autoGrow form#autoSplit" },
+            rows: 1,
+            class: "form-control w-100",
+            required: false %>
+          <%= tag.div class: "preview-wrapper" do %>
+            <% article.tag_list.each do |tag_name| %>
+              <%= tag.span tag_name, class: "badge bg-info me-1" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <div class="d-inline-block min-w-6">
+          <%= form.label :icon, OmniArticle::Article.human_attribute_name(:icon), class: "form-label" %>
+        </div>
+        <%= tag.div data: { controller: "file-upload" } do %>
+          <%= form.file_field :icon,
+            accept: "image/*",
+            data: {
+              direct_upload_url: main_app.rails_direct_uploads_url,
+              file_upload_target: "input",
+              action: "change->file-upload#preview form#validateField"
+            },
+            required: false,
+            class: "form-control" %>
+          <%= tag.div class: "flex-break" %>
+          <%= tag.div data: { file_upload_target: "previewContainer" } do %>
+            <% article.icon.presence&.then do |attached| %>
+              <%= tag.div class: "preview-wrapper d-inline-flex flex-direction-column max-w-6 mt-1 me-2" do %>
+                <%= form.hidden_field :icon, value: attached.signed_id %>
+                <%= image_tag cdn_url(attached), alt: "", class: "max-w-6 max-h-6" %>
+                <%= tag.div attached.filename.to_s, class: "preview-filename" %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <%= tag.div data: { file_upload_target: "previewTemplate" }, class: "d-none" do %>
+            <div class="preview-wrapper d-flex flex-direction-column flex-nowrap max-w-6 mt-1 me-2">
+              <img src="" alt="" class="max-w-6 max-h-6 object-fit-contain">
+              <div class="preview-filename text-wrap"></div>
+              <a href="javascript:;" data-action="click->file-upload#remove" class="icon-text text-secondary text-decoration-none d-inline-block">
+                <svg fill="none" viewBox="0 0 18 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+                </svg>
+              </a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="form-field align-items-center">
         <div class="d-inline-block min-w-6"></div>
 
         <%= button_tag form: "article-form", data: { action: "form#validateForm" }, class: "btn btn-primary me-3" do %>

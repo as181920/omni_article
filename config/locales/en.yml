@@ -103,3 +103,5 @@ en:
         content: "Content"
         created_at: "Created at"
         updated_at: "Updated at"
+        tag_list: "Tags"
+        icon: "Icon"

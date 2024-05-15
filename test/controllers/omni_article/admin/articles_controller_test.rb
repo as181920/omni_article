@@ -39,12 +39,21 @@ module OmniArticle
       assert_equal I18n.t("omni_article.flash.created_successfully"), flash[:notice]
     end
 
-    test "should show admin_article" do
+    test "should show article" do
       get admin_article_path(@article)
 
       assert_response :success
       assert_includes @response.body, @article.title
       assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
+    end
+
+    test "should show article tag list" do
+      @article.update tag_list: "abcdef,xxxyyy"
+
+      get admin_article_path(@article)
+
+      assert_includes @response.body, "abcdef"
+      assert_includes @response.body, "xxxyyy"
     end
 
     test "should get edit" do
@@ -55,7 +64,24 @@ module OmniArticle
       assert_select "textarea[name='article[content]'][data-form-target='richText']", value: @article.content, count: 1
     end
 
-    test "should update admin_article" do
+    test "should get edit with tag field" do
+      get url_for([:edit, :admin, @article])
+
+      assert_select "textarea[name='article[tag_list]'][data-action='form#validateField form#autoGrow form#autoSplit']",
+        value: @article.tag_list,
+        count: 1
+    end
+
+    test "should get edit with icon upload" do
+      get url_for([:edit, :admin, @article])
+
+      assert_select "form[action='#{admin_article_path(@article)}'] input[type='file'][name='article[icon]']", count: 1
+      assert_select "form[action='#{admin_article_path(@article)}'] input[type='hidden'][name='article[icon]']",
+        value: @article.icon.signed_id,
+        count: 1
+    end
+
+    test "should update article" do
       assert_no_difference "Article.count" do
         patch admin_article_path(@article), params: {
           article: {
@@ -67,6 +93,12 @@ module OmniArticle
 
       assert_equal I18n.t("omni_article.flash.updated_successfully"), flash[:notice]
       assert_equal "MODIFIED 2", @article.reload.title
+    end
+
+    test "should update article tag list" do
+      patch admin_article_path(@article), params: { article: { tag_list: "xxxxxx,yyyyyy" } }
+
+      assert_equal %w[xxxxxx yyyyyy], @article.reload.tag_list
     end
 
     test "should destroy admin_article" do

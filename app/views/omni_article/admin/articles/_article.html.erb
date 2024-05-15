@@ -27,6 +27,29 @@
       </div>
     </div>
 
+    <div class="form-field align-items-center">
+      <div class="d-inline-block min-w-6">
+        <%= label_tag :tag_list, OmniArticle::Article.human_attribute_name(:tag_list), class: "form-label" %>
+      </div>
+      <div>
+        <%= tag.div class: "preview-wrapper" do %>
+          <% article.tag_list.each do |tag_name| %>
+            <%= tag.span tag_name, class: "badge bg-info me-1" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-field align-items-normal">
+      <div class="d-inline-block min-w-6">
+        <%= label_tag :icon, OmniArticle::Article.human_attribute_name(:icon), class: "form-label" %>
+      </div>
+      <%= tag.div class: "preview-wrapper d-inline-flex flex-direction-column max-w-6 max-h-6 mt-1 me-2" do %>
+        <%= image_tag cdn_url(article.icon), alt: " ", class: "max-w-6 max-h-6" %>
+        <%= tag.div article.icon.filename.to_s, class: "preview-filename" %>
+      <% end %>
+    </div>
+
     <div class="form-field align-items-center mt-5">
       <% if policy([:omni_article, :admin, article]).edit? %>
         <%= link_to t("omni_article.edit"), edit_admin_article_path(article), class: "btn btn-primary me-3" %>

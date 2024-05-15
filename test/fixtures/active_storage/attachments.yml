@@ -1,0 +1,4 @@
+one:
+  name: icon
+  record: one (OmniArticle::Article)
+  blob: filler_image_blob
