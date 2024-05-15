@@ -1,3 +1,4 @@
+require "acts-as-taggable-on"
 require "addressable/uri"
 require "base58"
 require "breadcrumbs_on_rails"

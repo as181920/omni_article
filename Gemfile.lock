@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 61b698809a2969f77d36cbdccc8f76003966f8ad
+  revision: 65bd5aa0a290fa3f69d3969db0e8667e9cb4c04f
   branch: main
   specs:
     easy_style (0.1.0)
@@ -91,7 +91,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: d1ce1316033dc36019a7a748ec128148517d317b
+  revision: 60c51d75c8039fd6fd031d05772a7ef833c46d9d
   branch: main
   specs:
     tenant_auth (0.1.0)
@@ -114,7 +114,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 26a9b12729329bca9ec14f126fad3d5d370bc36a
+  revision: 869c49c7169689f47f9c1846ee4433d36320eb39
   branch: main
   specs:
     user_auth (0.1.0)
@@ -137,7 +137,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: 84128f6480d7d8e16a7c79c3b7a6af8b19d1edc4
+  revision: 166e613d60c8967e3c8f7bd7740ef2d34f69188b
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
@@ -165,6 +165,7 @@ PATH
   remote: .
   specs:
     omni_article (0.2.0)
+      acts-as-taggable-on (~> 10.0)
       addressable
       base58
       breadcrumbs_on_rails

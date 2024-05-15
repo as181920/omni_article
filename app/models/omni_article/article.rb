@@ -2,6 +2,8 @@ module OmniArticle
   class Article < ApplicationRecord
     include ::OmniComment::Commentable
 
+    acts_as_taggable_on :tags
+
     belongs_to :owner, polymorphic: true
 
     validates :content, presence: true
