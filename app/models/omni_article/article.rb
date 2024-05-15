@@ -16,6 +16,10 @@ module OmniArticle
       %w[id title content owner_type owner_id created_at updated_at]
     end
 
+    def self.ransackable_associations(_auth_object = nil)
+      %w[tags]
+    end
+
     private
 
       def set_initial_attrs

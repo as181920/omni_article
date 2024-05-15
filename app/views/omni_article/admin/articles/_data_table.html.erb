@@ -4,6 +4,7 @@
       <tr>
         <%= tag.th sort_link(@q, :id, OmniArticle::Article.human_attribute_name(:id), default_order: :asc, class: "text-decoration-none text-info") %>
         <%= tag.th OmniArticle::Article.human_attribute_name(:title) %>
+        <%= tag.th OmniArticle::Article.human_attribute_name(:tag_list) %>
         <%= tag.th t("omni_article.url") %>
         <%= tag.th sort_link(@q, :updated_at, OmniArticle::Article.human_attribute_name(:updated_at), default_order: :desc, class: "text-decoration-none text-info") %>
         <%= tag.th t("omni_article.handle") %>
@@ -16,6 +17,12 @@
           <%= tag.th article.id, scope: "row", class: "py-3" %>
 
           <%= tag.td article.title %>
+
+          <%= tag.td do %>
+            <% article.tag_list.each do |tag_name| %>
+              <%= tag.span tag_name, class: "badge bg-info me-1" %>
+            <% end %>
+          <% end %>
 
           <%= tag.td do %>
             <%= link_to [:admin, article, :entry], data: { turbo_frame: "modal" }, class: "icon-text text-info p-2" do %>

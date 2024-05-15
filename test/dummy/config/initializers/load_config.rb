@@ -22,6 +22,12 @@ class ENVConfig
   end
 end
 
+class ActsAsTaggableOn::Tag
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name]
+  end
+end
+
 InlineSvg.configure do |config|
   config.asset_finder = InlineSvg::PropshaftAssetFinder
 end

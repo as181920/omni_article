@@ -11,6 +11,12 @@
       class: "form-control" %>
   </div>
 
+  <div class="d-inline-block me-3 mb-1">
+    <%= form.text_field :tags_name_cont,
+      placeholder: OmniArticle::Article.human_attribute_name(:tag_list),
+      class: "form-control" %>
+  </div>
+
   <%= form.button class: "btn btn-primary" do %>
     <%= tag.span class: "loading-spinner" %>
     <%= tag.span t("omni_article.search") %>
