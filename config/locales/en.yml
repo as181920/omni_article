@@ -75,6 +75,8 @@ en:
     length: "length"
     max_length: "max length"
     min_length: "min length"
+    unknown: "Unknown"
+    click_to_open: "Click to open web page"
     locales:
       en: "English"
       zh-CN: "Chinese"

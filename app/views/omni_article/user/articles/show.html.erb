@@ -1,5 +1,7 @@
 <%= content_for :title, @article.title %>
 
+<% render "wechat_web_config", article: @article if browser.wechat? %>
+
 <section>
   <div class="card">
     <div class="card-body">

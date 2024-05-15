@@ -1,0 +1,29 @@
+<% WechatOpenPlatformProxy::ThirdPartyPlatform.find_by(uid: ENV.fetch("wechat_oauth_third_party_platform_uid", nil))&.then do |tp| %>
+  <% tp.official_accounts.find_by(app_id: ENV.fetch("wechat_oauth_official_account_app_id", nil))&.then do |official_account| %>
+    <script type="module">
+      import wx from "weixin-js-sdk"
+
+      wx.config(Object.assign(<%= sanitize WechatOpenPlatformProxy::OfficialAccountJssdkService.new(official_account).config(request.url).to_json %>, {
+        debug: <%= params[:debug].present? || false %>,
+        jsApiList: ["updateAppMessageShareData", "updateTimelineShareData", "hideMenuItems"]
+      }));
+
+      wx.ready(function () {
+        wx.hideMenuItems({menuList: ["menuItem:share:qq", "menuItem:share:weiboApp", "menuItem:share:QZone", "menuItem:share:email"]});
+
+        wx.updateAppMessageShareData({
+          title: "<%== j article.title.presence || OmniArticle::Article.model_name.human %>",
+          desc: "<%= j t("omni_article.click_to_open") %>",
+          link: "<%== j article_url(article.uid) %>",
+          imgUrl: "<%== j cdn_url(article.icon) %>"
+        })
+
+        wx.updateTimelineShareData({
+          title: "<%== j article.title.presence || OmniArticle::Article.model_name.human %>",
+          link: "<%== j article_url(article.uid) %>",
+          imgUrl: "<%== j cdn_url(article.icon) %>"
+        })
+      });
+    </script>
+  <% end %>
+<% end %>

@@ -73,6 +73,7 @@ zh-CN:
     max_length: "最大长度"
     min_length: "最小长度"
     unknown: "未知"
+    click_to_open: "点此查看详情~"
     locales:
       en: "英文"
       zh-CN: "中文"
