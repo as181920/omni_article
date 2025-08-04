@@ -5,14 +5,11 @@ gemspec
 
 # rubocop:disable Bundler/OrderedGems
 gem "debug"
-gem "gem-ctags"
 gem "rubocop"
-gem "rubocop-capybara", require: false
-gem "rubocop-erb", "~> 0.3"
-gem "rubocop-minitest"
-gem "rubocop-performance"
-gem "rubocop-rails"
-gem "rubocop-rake"
+gem "rubocop-erb", require: false
+gem "rubocop-minitest", require: false
+gem "rubocop-rails-omakase", require: false
+gem "rubocop-rake", require: false
 
 gem "guard"
 gem "guard-bundler"
