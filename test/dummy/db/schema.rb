@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2099_09_05_112806) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_05_181522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -429,6 +429,9 @@ ActiveRecord::Schema[8.0].define(version: 2099_09_05_112806) do
     t.datetime "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "wechat_oauth_scope"
+    t.string "permissions", default: [], array: true
+    t.integer "implicit_auth_mode"
     t.index ["tenant_id"], name: "index_tnt_tenant_ext_infos_on_tenant_id", unique: true
   end
 
@@ -546,7 +549,6 @@ ActiveRecord::Schema[8.0].define(version: 2099_09_05_112806) do
   create_table "usr_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "nickname"
-    t.string "avatar_url"
     t.string "locale"
     t.string "time_zone"
     t.integer "gender"
@@ -770,6 +772,28 @@ ActiveRecord::Schema[8.0].define(version: 2099_09_05_112806) do
     t.index ["owner_type", "owner_id"], name: "index_wxpay_ecommerce_applyments_on_owner"
   end
 
+  create_table "wxpay_partner_applyments", force: :cascade do |t|
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.string "business_code"
+    t.jsonb "contact_info"
+    t.jsonb "subject_info"
+    t.jsonb "business_info"
+    t.jsonb "settlement_info"
+    t.jsonb "bank_account_info"
+    t.jsonb "addition_info"
+    t.string "applyment_id"
+    t.string "sign_url"
+    t.string "sub_mch_id"
+    t.integer "state"
+    t.text "state_message"
+    t.jsonb "audit_detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_code"], name: "index_wxpay_partner_applyments_on_business_code", unique: true
+    t.index ["owner_type", "owner_id"], name: "index_wxpay_sub_applyments_on_owner"
+  end
+
   create_table "wxpay_platform_certificates", force: :cascade do |t|
     t.bigint "vendor_id"
     t.datetime "effective_at"
@@ -809,28 +833,6 @@ ActiveRecord::Schema[8.0].define(version: 2099_09_05_112806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sub_mch_id"], name: "index_wxpay_settlement_accounts_on_sub_mch_id"
-  end
-
-  create_table "wxpay_sub_applyments", force: :cascade do |t|
-    t.string "owner_type"
-    t.bigint "owner_id"
-    t.string "business_code"
-    t.jsonb "contact_info"
-    t.jsonb "subject_info"
-    t.jsonb "business_info"
-    t.jsonb "settlement_info"
-    t.jsonb "bank_account_info"
-    t.jsonb "addition_info"
-    t.string "applyment_id"
-    t.string "sign_url"
-    t.string "sub_mchid"
-    t.integer "state"
-    t.text "state_message"
-    t.jsonb "audit_detail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["business_code"], name: "index_wxpay_sub_applyments_on_business_code", unique: true
-    t.index ["owner_type", "owner_id"], name: "index_wxpay_sub_applyments_on_owner"
   end
 
   create_table "wxpay_vendors", force: :cascade do |t|

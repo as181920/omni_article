@@ -97,7 +97,7 @@ GIT
   revision: dde78bfc3e6a9930409fb33e3302c78928e882b1
   branch: main
   specs:
-    tenant_auth (0.1.0)
+    tenant_auth (0.2.0)
       accept_language
       acts-as-taggable-on
       base58
