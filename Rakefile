@@ -8,9 +8,9 @@ load "rails/tasks/statistics.rake"
 require "bundler/gem_tasks"
 
 require "rubocop/rake_task"
-# RuboCop::RakeTask.new do |task|
-#   task.requires << "rubocop-capybara"
-# end
+RuboCop::RakeTask.new do |task|
+  task.plugins << "rubocop-rake"
+end
 
 require "rake/testtask"
 Rake::TestTask.new(:test) do |t|
