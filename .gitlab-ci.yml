@@ -1,5 +1,6 @@
 before_script:
   - pwd
+  - rvm use || rvm install $(<.ruby-version)
   - ruby -v
   - bundle install -j $(nproc)
 

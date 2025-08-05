@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_comment.git
-  revision: cc96fb2fca7bad2ff4cc9422a756eb2b9d4bf162
+  revision: fc9c6d2df6c12cc67040d14d8ff6ab7344758d23
   branch: master
   specs:
     omni_comment (0.1.1)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: a72d1d146345f1055fec5117cdc035ca7db182e5
+  revision: 935011a0f54e3993c203b30fc734676a7bd24a63
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -51,7 +51,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
-  revision: 662dbe82a98e60ae9054504ba19b9e3e848a8b8e
+  revision: 006ac1ac6c5f1fe05f401b5ad9c02c26dd7908ec
   branch: master
   specs:
     omni_region (0.1.1)
@@ -63,7 +63,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_role.git
-  revision: ca866244faf952f57d3358264072975a75e8b116
+  revision: c2c6da3debacb2fff2e167c0882dfbea98d05606
   branch: master
   specs:
     omni_role (0.1.0)
