@@ -13,6 +13,7 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
   ActiveSupport::TestCase.file_fixture_path = File.expand_path("fixtures/files", __dir__)
   ActiveStorage::FixtureSet.file_fixture_path = ActiveSupport::TestCase.file_fixture_path
   ActiveSupport::TestCase.fixtures :all
+  ActiveSupport::TestCase.parallelize workers: :number_of_processors
 end
 
 require "minitest/mock"

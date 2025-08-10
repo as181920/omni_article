@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_05_181522) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_10_094509) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -42,19 +42,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_05_181522) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "omni_account_account_histories", force: :cascade do |t|
-    t.bigint "account_id"
-    t.bigint "entry_id"
-    t.bigint "previous_id"
-    t.decimal "amount", precision: 12, scale: 2, null: false
-    t.decimal "balance", precision: 12, scale: 2, null: false
-    t.text "description"
-    t.datetime "created_at", precision: nil, null: false
-    t.index ["account_id"], name: "index_omni_account_account_histories_on_account_id"
-    t.index ["entry_id"], name: "index_omni_account_account_histories_on_entry_id"
-    t.index ["previous_id", "account_id"], name: "index_omni_account_histories_on_previous_and_account", unique: true
-  end
-
   create_table "omni_account_accounts", force: :cascade do |t|
     t.string "holder_type"
     t.bigint "holder_id"
@@ -75,6 +62,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_05_181522) do
     t.datetime "created_at", precision: nil, null: false
     t.index ["origin_type", "origin_id"], name: "index_omni_account_entries_on_origin_type_and_origin_id"
     t.index ["uid"], name: "index_omni_account_entries_on_uid", unique: true
+  end
+
+  create_table "omni_account_postings", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "entry_id"
+    t.bigint "previous_id"
+    t.decimal "amount", precision: 12, scale: 2, null: false
+    t.decimal "balance", precision: 12, scale: 2, null: false
+    t.text "description"
+    t.datetime "created_at", precision: nil, null: false
+    t.index ["account_id"], name: "index_omni_account_postings_on_account_id"
+    t.index ["entry_id"], name: "index_omni_account_postings_on_entry_id"
+    t.index ["previous_id", "account_id"], name: "index_omni_account_postings_on_previous_and_account", unique: true
   end
 
   create_table "omni_article_articles", force: :cascade do |t|

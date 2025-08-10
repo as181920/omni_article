@@ -1,18 +1,18 @@
 GIT
   remote: git@gitlab.dd-life.com:common_utility/short_url.git
-  revision: aa1cb47586b9467a931da31cd862886b04f68e95
+  revision: b33ba2de0c1a467c7ceb407698dacd5f346bf1e6
   branch: master
   specs:
-    short_url (0.1.1)
+    short_url (0.2.0)
       addressable
       rails (>= 7.1)
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 96d776b6dff059c8f2993e533987b4a0b9ef2c6d
+  revision: 3d849a29bc1d4db28784a74fece861cf8e8795fa
   branch: main
   specs:
-    easy_style (0.1.0)
+    easy_style (0.2.0)
       breadcrumbs_on_rails
       browser
       chartkick
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_account.git
-  revision: 313c02a0dca5871a530238b7b7b51b49746a3683
+  revision: 50f9c8f636cedce3e9e2f9072e31007fd7ed8ec4
   branch: master
   specs:
     omni_account (0.2.1)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 935011a0f54e3993c203b30fc734676a7bd24a63
+  revision: 081463ba2772449d6a489d1af586dcdc48b90bd0
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -51,10 +51,10 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
-  revision: 006ac1ac6c5f1fe05f401b5ad9c02c26dd7908ec
+  revision: 8e5d03b28c12a6b9096b9979eb3404d7eabb180d
   branch: master
   specs:
-    omni_region (0.1.1)
+    omni_region (0.2.0)
       jbuilder
       rails (>= 6.1)
       ransack
@@ -71,10 +71,10 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 7181b68e914dc2f1a449a036d5b76cad717bb478
+  revision: a0f926302490519b364f0c5b6af4d87223652cb1
   branch: main
   specs:
-    organization_auth (0.1.0)
+    organization_auth (0.2.0)
       accept_language
       acts-as-taggable-on
       acts_as_list
@@ -94,10 +94,10 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 25ab4ec2dc0ef7090cfbe3fc1c6dfbf984ec718f
+  revision: f409614c12aabf1d69718651a141d12b1b30b914
   branch: main
   specs:
-    tenant_auth (0.2.0)
+    tenant_auth (0.3.0)
       accept_language
       acts-as-taggable-on
       base58
@@ -117,10 +117,10 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 1e4b5b468a6c5b13991bc9e96dd8a830f6e87976
+  revision: 891c93f456b3fd7c399762827a0d850405ea5ca9
   branch: main
   specs:
-    user_auth (0.1.0)
+    user_auth (0.2.0)
       accept_language
       acts-as-taggable-on
       base58
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: 9c06c4d50b534bfef623b389e6e7a28744278de1
+  revision: b28f91261c9124ad54e87c63ad8b7f5057f76393
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
@@ -153,7 +153,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.pay/wechat_vendor_platform_proxy.git
-  revision: 1d2d3d5e3fe94d40916efd85fb5cf8b79c1588c4
+  revision: b8cc6bd85bc0951a2cb230a3434f8585b154ec9e
   branch: master
   specs:
     wechat_vendor_platform_proxy (0.1.1)
