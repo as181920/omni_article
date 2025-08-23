@@ -25,6 +25,12 @@ module OmniArticle
       #   raise AuthenticateFailError, "authenticate failed." if current_user.blank?
       # end
 
+      def check_tenant_state
+        return unless respond_to?(:current_tenant, true) && %w[suspended closed].include?(current_tenant&.state)
+
+        redirect_to tenant_auth.billing_path # alert: I18n.t("tenant_auth.suspended_page_title")
+      end
+
       def current_user
         @current_user ||= nil
       end

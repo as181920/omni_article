@@ -22,5 +22,15 @@ module OmniArticle
       assert_response :success
       assert_includes @response.body, I18n.t("omni_article.not_exist")
     end
+
+    test "should check tenant status before show" do
+      @article.owner.suspended!
+
+      get user_article_path(@article.uid)
+
+      assert_response :redirect
+      assert_redirected_to tenant_auth.billing_path
+      assert_nil flash[:alert]
+    end
   end
 end

@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 3d849a29bc1d4db28784a74fece861cf8e8795fa
+  revision: 4eb51836509131d587f38cacfcfe6dd0cf508cff
   branch: main
   specs:
     easy_style (0.2.0)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_comment.git
-  revision: fc9c6d2df6c12cc67040d14d8ff6ab7344758d23
+  revision: 0c47b7a91b4f10d42d64eb8468fa68fa69753019
   branch: master
   specs:
     omni_comment (0.1.1)
@@ -63,7 +63,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_role.git
-  revision: c2c6da3debacb2fff2e167c0882dfbea98d05606
+  revision: 9a2b165f42050628d566c8d1eedf9f594c20b382
   branch: master
   specs:
     omni_role (0.1.0)
@@ -71,7 +71,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: a0f926302490519b364f0c5b6af4d87223652cb1
+  revision: 1c7739ece60de63b033eea4dbf15fb73c9055b94
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -94,7 +94,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: f409614c12aabf1d69718651a141d12b1b30b914
+  revision: d4fc108dcb2f2e959fdb08f97748920cd05cbcc2
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -117,7 +117,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 891c93f456b3fd7c399762827a0d850405ea5ca9
+  revision: 940b86cea4d9b6dea509bdfa94a1a53d60022aac
   branch: main
   specs:
     user_auth (0.2.0)
