@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 4eb51836509131d587f38cacfcfe6dd0cf508cff
+  revision: 84532ff4458f2fa86c6954b3f434dea20e0c0e2b
   branch: main
   specs:
     easy_style (0.2.0)
@@ -71,7 +71,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 1c7739ece60de63b033eea4dbf15fb73c9055b94
+  revision: be4d6c53d43627d2344a10da8cc5cdc30eb74fa1
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -94,7 +94,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: d4fc108dcb2f2e959fdb08f97748920cd05cbcc2
+  revision: 29ff27508e822e78f45a56f5a9af52c193a69d82
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -117,7 +117,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 940b86cea4d9b6dea509bdfa94a1a53d60022aac
+  revision: fab2f525acf95473cd164d4152253d807a097e9a
   branch: main
   specs:
     user_auth (0.2.0)
@@ -652,4 +652,4 @@ DEPENDENCIES
   wechat_vendor_platform_proxy!
 
 BUNDLED WITH
-   2.6.9
+   2.7.2

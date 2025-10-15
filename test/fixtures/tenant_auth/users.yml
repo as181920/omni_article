@@ -2,3 +2,4 @@ one:
   tenant: one
   name: "tenant_user_one"
   password_digest: <%= BCrypt::Password.create("password", cost: 5) %>
+  root: true

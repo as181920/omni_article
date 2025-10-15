@@ -1,22 +1,33 @@
 module OmniArticle
   class Admin::ArticlePolicy < ApplicationPolicy
-    def new?
-      true
+    def index?
+      (!user.respond_to?(:root?) || user.root?) ||
+        (!user.respond_to?(:has_permission?) || user.has_permission?("cms:read", user.tenant))
     end
 
-    def create?
-      record.owner == owner
+    def new?
+      (!user.respond_to?(:root?) || user.root?) ||
+        (!user.respond_to?(:has_permission?) || user.has_permission?("cms:write", user.tenant))
     end
 
     def show?
-      record.owner == owner
+      (record.owner == owner) &&
+        (
+          (!user.respond_to?(:root?) || user.root?) ||
+          (!user.respond_to?(:has_permission?) || user.has_permission?("cms:read", user.tenant))
+        )
     end
-    alias_method :edit?, :show?
-    alias_method :update?, :edit?
 
-    def destroy?
-      record.owner == owner
+    def edit?
+      (record.owner == owner) &&
+        (
+          (!user.respond_to?(:root?) || user.root?) ||
+          (!user.respond_to?(:has_permission?) || user.has_permission?("cms:write", user.tenant))
+        )
     end
+    alias_method :create?, :edit?
+    alias_method :update?, :edit?
+    alias_method :destroy?, :edit?
 
     class Scope < Scope
       def resolve

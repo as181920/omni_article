@@ -4,6 +4,7 @@ module OmniArticle
     before_action :set_article, only: %i[show edit update destroy]
 
     def index
+      authorize [:omni_article, :admin, Article]
       @q = policy_scope([:omni_article, :admin, Article])
         .then { |scope| params.dig(:q, :s).present? ? scope : scope.order(id: :desc) }
         .ransack(params[:q])

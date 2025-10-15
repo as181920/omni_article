@@ -7,9 +7,11 @@
         <%= render "search_form", q: @q %>
 
         <div class="ms-auto">
-          <%= link_to new_admin_article_path, class: "btn btn-primary ms-3" do %>
-            <%= tag.span inline_svg_tag("easy_style/icon_add.svg") %>
-            <%= tag.span t("omni_article.add") %>
+          <% if policy([:omni_article, :admin, OmniArticle::Article.new]).new? %>
+            <%= link_to new_admin_article_path, class: "btn btn-primary ms-3" do %>
+              <%= tag.span inline_svg_tag("easy_style/icon_add.svg") %>
+              <%= tag.span t("omni_article.add") %>
+            <% end %>
           <% end %>
         </div>
       </div>
