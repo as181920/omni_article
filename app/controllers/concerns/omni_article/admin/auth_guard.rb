@@ -11,7 +11,7 @@ module OmniArticle
       after_action :verify_authorized, except: :index
       after_action :verify_policy_scoped, only: :index
 
-      helper_method :current_user, :current_tenant
+      helper_method :current_user, :current_tenant, :current_organization
 
       rescue_from AuthenticateFailError, InvalidAuthTypeError, InvalidAuthValueError, with: :handle_authenticate_failure
       rescue_from Pundit::NotAuthorizedError, with: :handle_authorize_failure
@@ -32,6 +32,10 @@ module OmniArticle
 
       def current_tenant
         @current_tenant ||= current_user&.tenant if current_user.instance_of?(::TenantAuth::User)
+      end
+
+      def current_organization
+        @current_organization ||= current_user&.organization if current_user.instance_of?(::OrganizationAuth::User)
       end
 
       def authenticate_user
