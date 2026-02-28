@@ -4,6 +4,7 @@
       <tr>
         <%= tag.th sort_link(@q, :id, OmniArticle::Article.human_attribute_name(:id), default_order: :asc, class: "text-decoration-none text-info") %>
         <%= tag.th OmniArticle::Article.human_attribute_name(:title) %>
+        <%= tag.th OmniArticle::Article.human_attribute_name(:summary) %>
         <%= tag.th OmniArticle::Article.human_attribute_name(:tag_list) %>
         <%= tag.th t("omni_article.url") %>
         <%= tag.th sort_link(@q, :updated_at, OmniArticle::Article.human_attribute_name(:updated_at), default_order: :desc, class: "text-decoration-none text-info") %>
@@ -17,6 +18,10 @@
           <%= tag.th article.id, scope: "row", class: "py-3" %>
 
           <%= tag.td article.title %>
+
+          <%= tag.td class: "text-start" do %>
+            <%= simple_format(truncate(article.summary.to_s, length: 80), {}, wrapper_tag: "div") %>
+          <% end %>
 
           <%= tag.td do %>
             <% article.tag_list.each do |tag_name| %>
@@ -55,7 +60,7 @@
         </tr>
       <% end %>
 
-      <%= tag.tr tag.td t("omni_article.none"), colspan: 5, class: "text-align-center py-2" if articles.blank? %>
+      <%= tag.tr tag.td t("omni_article.none"), colspan: 7, class: "text-align-center py-2" if articles.blank? %>
     </tbody>
   </table>
 </div>

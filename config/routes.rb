@@ -10,6 +10,12 @@ OmniArticle::Engine.routes.draw do
   end
 
   namespace :user do
+    concern :article_container do
+      resources :articles, param: :uid, only: %i[index show], controller: "owner_articles"
+    end
+
+    resources :tenants, param: :uid, only: [], concerns: :article_container
+    resources :organizations, param: :uid, only: [], concerns: :article_container
     resources :articles, param: :uid, only: %i[show]
   end
 

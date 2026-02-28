@@ -1,0 +1,21 @@
+<%= link_to article_path(article.uid), class: "d-flex align-items-start text-decoration-none text-reset px-3 py-3 border-bottom bg-white" do %>
+  <div class="flex-shrink-0 me-3">
+    <% if article.icon.attached? %>
+      <%= image_tag cdn_url(article.icon), alt: "", class: "rounded object-fit-cover", style: "width: 4.5rem; height: 4.5rem;" %>
+    <% else %>
+      <div class="rounded d-flex align-items-center justify-content-center text-secondary bg-light" style="width: 4.5rem; height: 4.5rem;">
+        <%= OmniArticle::Article.model_name.human %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex-grow-1 min-w-0">
+    <div class="fw-semibold text-dark mb-2"><%= article.title %></div>
+
+    <% article.summary.presence&.then do |summary| %>
+      <div class="text-secondary small line-height-base">
+        <%= truncate(summary, length: 80) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

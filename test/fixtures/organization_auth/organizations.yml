@@ -1,3 +1,4 @@
 one:
+  uid: "ORGANIZATION_AUTH_UID_ONE"
   name: "ORGANIZATION_ONE"
   custom_settings: {}

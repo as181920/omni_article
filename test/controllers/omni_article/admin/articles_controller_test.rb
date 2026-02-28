@@ -24,19 +24,33 @@ module OmniArticle
       get url_for(%i[new admin article])
 
       assert_response :success
+    end
+
+    test "should get new with summary field" do
+      get url_for(%i[new admin article])
+
       assert_select "form[action='#{admin_articles_path}'] input[type='text'][name='article[title]']", count: 1
+      assert_select "textarea[name='article[summary]']", count: 1
       assert_select "textarea[name='article[content]'][data-form-target='richText']", count: 1
     end
 
     test "should create admin_article" do
       assert_difference "Article.count", 1 do
-        post admin_articles_path, params: { article: { content: "FILLER" } }
+        post admin_articles_path, params: { article: { summary: "SUMMARY", content: "FILLER" } }
       end
 
       record = Article.last
 
       assert_redirected_to admin_article_path(record)
       assert_equal I18n.t("omni_article.flash.created_successfully"), flash[:notice]
+    end
+
+    test "should create admin_article with summary" do
+      post admin_articles_path, params: { article: { summary: "SUMMARY", content: "FILLER" } }
+
+      record = Article.last
+
+      assert_equal "SUMMARY", record.summary
     end
 
     test "should show article" do
@@ -60,7 +74,13 @@ module OmniArticle
       get url_for([:edit, :admin, @article])
 
       assert_response :success
+    end
+
+    test "should get edit with summary field" do
+      get url_for([:edit, :admin, @article])
+
       assert_select "form[action='#{admin_article_path(@article)}'] input[type='text'][name='article[title]']", count: 1, value: @article.title
+      assert_select "textarea[name='article[summary]']", text: @article.summary, count: 1
       assert_select "textarea[name='article[content]'][data-form-target='richText']", value: @article.content, count: 1
     end
 
@@ -86,6 +106,7 @@ module OmniArticle
         patch admin_article_path(@article), params: {
           article: {
             title: "MODIFIED 2",
+            summary: "MODIFIED SUMMARY",
             content: "<strong>MODIFIED 3</strong>"
           }
         }
@@ -93,6 +114,26 @@ module OmniArticle
 
       assert_equal I18n.t("omni_article.flash.updated_successfully"), flash[:notice]
       assert_equal "MODIFIED 2", @article.reload.title
+    end
+
+    test "should update article summary" do
+      patch admin_article_path(@article), params: {
+        article: {
+          title: "MODIFIED 2",
+          summary: "MODIFIED SUMMARY",
+          content: "<strong>MODIFIED 3</strong>"
+        }
+      }
+
+      @article.reload
+
+      assert_equal "MODIFIED SUMMARY", @article.summary
+    end
+
+    test "should show article summary" do
+      get admin_article_path(@article)
+
+      assert_includes @response.body, @article.summary
     end
 
     test "should update article tag list" do

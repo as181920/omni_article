@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_12_061428) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_28_093000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,8 +50,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_061428) do
     t.decimal "balance", precision: 12, scale: 2, default: "0.0", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "code"
+    t.text "description"
+    t.bigint "parent_id"
     t.index ["holder_id", "holder_type", "name"], name: "index_omni_account_accounts_on_holder_and_name", unique: true
     t.index ["normal_balance"], name: "index_omni_account_accounts_on_normal_balance"
+    t.index ["parent_id"], name: "index_omni_account_accounts_on_parent_id"
   end
 
   create_table "omni_account_entries", force: :cascade do |t|
@@ -85,6 +89,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_061428) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "uid"
+    t.text "summary"
     t.index ["owner_type", "owner_id"], name: "index_omni_article_articles_on_woner"
     t.index ["uid"], name: "index_omni_article_articles_on_uid", unique: true
   end
@@ -207,7 +212,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_061428) do
     t.jsonb "custom_settings", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
     t.index ["name"], name: "index_org_organizations_on_name", unique: true
+    t.index ["uid"], name: "index_org_organizations_on_uid", unique: true
   end
 
   create_table "org_phones", force: :cascade do |t|
@@ -571,7 +578,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_061428) do
     t.string "district_code"
     t.string "postal_code"
     t.string "detail_info"
-    t.boolean "is_default", default: false, null: false
+    t.boolean "default", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_usr_shipping_addresses_on_user_id"

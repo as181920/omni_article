@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 84532ff4458f2fa86c6954b3f434dea20e0c0e2b
+  revision: 46b0d9ebd7ce5c6786e8a9ff30d510a1ad50076c
   branch: main
   specs:
-    easy_style (0.2.0)
+    easy_style (0.3.0)
       breadcrumbs_on_rails
       browser
       chartkick
@@ -26,11 +26,13 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_account.git
-  revision: 50f9c8f636cedce3e9e2f9072e31007fd7ed8ec4
+  revision: 7bffb3e941aca6a606036c0bcf7bff7f125e6957
   branch: master
   specs:
     omni_account (0.2.1)
+      kaminari
       rails (>= 6.1)
+      ransack
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_comment.git
@@ -51,7 +53,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
-  revision: 8e5d03b28c12a6b9096b9979eb3404d7eabb180d
+  revision: b6f757b964d5a5b5e35b0fddb7c6c9e4dbaba031
   branch: master
   specs:
     omni_region (0.2.0)
@@ -71,7 +73,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: be4d6c53d43627d2344a10da8cc5cdc30eb74fa1
+  revision: 32789304f00ee1f4df2afcda8ee93f7bb923bd02
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -94,7 +96,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: d8c0612c986901f7aab784b17d666171382a86cc
+  revision: aca7dd779989a03cade037bd3444ec5a2124b6b4
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -117,7 +119,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: fab2f525acf95473cd164d4152253d807a097e9a
+  revision: 39e36db8eab2aa4bb5422e070dcd0cf40e9dff58
   branch: main
   specs:
     user_auth (0.2.0)

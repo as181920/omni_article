@@ -13,7 +13,7 @@ module OmniArticle
     before_validation :set_initial_attrs, on: :create
 
     def self.ransackable_attributes(_auth_object = nil)
-      %w[id title content owner_type owner_id created_at updated_at]
+      %w[id title summary content owner_type owner_id created_at updated_at]
     end
 
     def self.ransackable_associations(_auth_object = nil)

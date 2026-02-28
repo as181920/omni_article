@@ -38,6 +38,19 @@
 
       <div class="form-field align-items-normal">
         <div class="d-inline-block min-w-6">
+          <%= form.label :summary, OmniArticle::Article.human_attribute_name(:summary), class: "form-label" %>
+        </div>
+        <div class="flex-1">
+          <%= form.text_area :summary,
+            data: { action: "form#validateField form#autoGrow" },
+            rows: 2,
+            class: "form-control w-100",
+            required: false %>
+        </div>
+      </div>
+
+      <div class="form-field align-items-normal">
+        <div class="d-inline-block min-w-6">
           <%= form.label :content, OmniArticle::Article.human_attribute_name(:content), class: "form-label" %>
           <%= tag.span "*", class: "text-danger me-3" %>
         </div>

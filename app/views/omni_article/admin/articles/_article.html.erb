@@ -21,6 +21,14 @@
       </div>
     </div>
 
+    <% if article.summary.present? %>
+      <div class="row text-align-center">
+        <div class="col w-100">
+          <%= tag.p article.summary, class: "text-secondary my-3 px-3" %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="col w-100">
         <%= rich_text_content article.content %>

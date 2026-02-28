@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "owner_articles_page_#{articles.current_page}", target: "_top" do %>
+  <% articles.each do |article| %>
+    <%= render "omni_article/user/articles/article_line", article: article %>
+  <% end %>
+
+  <% if articles.next_page %>
+    <%= turbo_frame_tag "owner_articles_page_#{articles.next_page}",
+      target: "_top",
+      loading: :lazy,
+      src: url_for(request.parameters.merge(page: articles.next_page)) do %>
+      <%= render "easy_style/mobile/shared/loading_more" %>
+    <% end %>
+  <% else %>
+    <%= render "easy_style/mobile/shared/no_more" %>
+  <% end %>
+<% end %>

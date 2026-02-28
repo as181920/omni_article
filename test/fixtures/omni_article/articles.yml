@@ -2,4 +2,12 @@ one:
   owner: one (TenantAuth::Tenant)
   uid: "OMNI_ARTICLE_UID_ONE"
   title: "OMNI ARTICLE TITLE ONE"
+  summary: "OMNI ARTICLE SUMMARY ONE"
   content: "<p>OMNI ARTICLE CONTENT ONE</p>"
+
+two:
+  owner: one (OrganizationAuth::Organization)
+  uid: "OMNI_ARTICLE_UID_TWO"
+  title: "OMNI ARTICLE TITLE TWO"
+  summary: "OMNI ARTICLE SUMMARY TWO"
+  content: "<p>OMNI ARTICLE CONTENT TWO</p>"

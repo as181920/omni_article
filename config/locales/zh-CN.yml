@@ -99,6 +99,7 @@ zh-CN:
         uid: "UID"
         owner: "创建人"
         title: "标题"
+        summary: "概要"
         content: "内容"
         created_at: "创建于"
         updated_at: "更新于"

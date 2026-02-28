@@ -9,7 +9,7 @@ module OmniArticle
         .then { |scope| params.dig(:q, :s).present? ? scope : scope.order(id: :desc) }
         .ransack(params[:q])
       @articles = @q.result
-        .select(:id, :uid, :title, :owner_type, :owner_id, :created_at, :updated_at)
+        .select(:id, :uid, :title, :summary, :owner_type, :owner_id, :created_at, :updated_at)
         .page(params[:page]).per(params[:per] || 10)
     end
 
@@ -72,7 +72,7 @@ module OmniArticle
 
       def article_params
         params.fetch(:article, {}).permit(
-          :title, :template, :content,
+          :title, :summary, :template, :content,
           :icon, :tag_list
         ).tap do |permitted_params|
           permitted_params[:tag_list] = permitted_params[:tag_list].to_s.split(/,|;|，|；|\s+/).compact_blank.join(",")
