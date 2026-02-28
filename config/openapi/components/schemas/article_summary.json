@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "uid",
+    "title",
+    "summary",
+    "updated_at",
+    "url",
+    "icon_url",
+    "tag_list"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 12
+    },
+    "uid": {
+      "type": "string",
+      "example": "ART8xP1mK"
+    },
+    "title": {
+      "type": "string",
+      "example": "AI 展厅本周活动预告"
+    },
+    "summary": {
+      "type": "string",
+      "nullable": true,
+      "example": "本周将上线数字人接待、智能讲解和线索采集联动。"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "url": {
+      "type": "string",
+      "example": "/omni_article/y8s1A2Bc"
+    },
+    "icon_url": {
+      "type": "string",
+      "nullable": true,
+      "example": "https://cdn.example.com/uploads/article/icon.png"
+    },
+    "tag_list": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "展厅动态",
+        "活动预告"
+      ]
+    }
+  }
+}

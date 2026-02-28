@@ -3,6 +3,9 @@
 
 ## Usage
 
+- `GET /omni_article/api-docs`
+- `GET /omni_article/api-docs/openapi.json`
+
 ## Installation
 Add this line to your application's Gemfile:
 

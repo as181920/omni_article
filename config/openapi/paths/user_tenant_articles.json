@@ -1,0 +1,75 @@
+{
+  "get": {
+    "tags": [
+      "User Tenant Articles"
+    ],
+    "summary": "Tenant article list for mini-program or H5 user side",
+    "operationId": "omniArticleUserTenantArticlesIndex",
+    "parameters": [
+      {
+        "name": "tenant_uid",
+        "in": "path",
+        "required": true,
+        "description": "Tenant uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "TENANT_AUTH_TENANT_UID_ONE"
+      },
+      {
+        "name": "tag",
+        "in": "query",
+        "description": "Filter by single tag name",
+        "schema": {
+          "type": "string"
+        },
+        "example": "展厅动态"
+      },
+      {
+        "name": "q[s]",
+        "in": "query",
+        "description": "Sort expression, e.g. updated_at desc",
+        "schema": {
+          "type": "string"
+        },
+        "example": "updated_at desc"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "description": "Page number (Kaminari)",
+        "schema": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "example": 1
+      },
+      {
+        "name": "per",
+        "in": "query",
+        "description": "Page size, defaults to 10",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "example": 10
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Tenant article list",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "../components/schemas/article_summary.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

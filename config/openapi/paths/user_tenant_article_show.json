@@ -1,0 +1,43 @@
+{
+  "get": {
+    "tags": [
+      "User Tenant Articles"
+    ],
+    "summary": "Tenant-scoped article detail",
+    "operationId": "omniArticleUserTenantArticlesShow",
+    "parameters": [
+      {
+        "name": "tenant_uid",
+        "in": "path",
+        "required": true,
+        "description": "Tenant uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "TENANT_AUTH_TENANT_UID_ONE"
+      },
+      {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "description": "Article uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ART8xP1mK"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Tenant article detail",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/article_detail.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

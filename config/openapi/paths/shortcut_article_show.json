@@ -1,0 +1,33 @@
+{
+  "get": {
+    "tags": [
+      "Shortcut Articles"
+    ],
+    "summary": "Legacy shortcut article detail by article uid",
+    "operationId": "omniArticleShortcutArticleShow",
+    "parameters": [
+      {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "description": "Article uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ART8xP1mK"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Article detail",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/article_detail.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

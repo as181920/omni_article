@@ -1,0 +1,43 @@
+{
+  "get": {
+    "tags": [
+      "User Organization Articles"
+    ],
+    "summary": "Organization-scoped article detail",
+    "operationId": "omniArticleUserOrganizationArticlesShow",
+    "parameters": [
+      {
+        "name": "organization_uid",
+        "in": "path",
+        "required": true,
+        "description": "Organization uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ORGANIZATION_AUTH_UID_ONE"
+      },
+      {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "description": "Article uid",
+        "schema": {
+          "type": "string"
+        },
+        "example": "ART8xP1mK"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Organization article detail",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../components/schemas/article_detail.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

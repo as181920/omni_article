@@ -1,0 +1,34 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OmniArticle API",
+    "version": "2026-02-28",
+    "description": "User-side article API contract for OmniArticle engine."
+  },
+  "servers": [
+    {
+      "url": "/omni_article",
+      "description": "Mounted path in easy_biz_host_app"
+    }
+  ],
+  "paths": {
+    "/{uid}": {
+      "$ref": "./openapi/paths/shortcut_article_show.json"
+    },
+    "/user/articles/{uid}": {
+      "$ref": "./openapi/paths/user_articles_show.json"
+    },
+    "/user/tenants/{tenant_uid}/articles": {
+      "$ref": "./openapi/paths/user_tenant_articles.json"
+    },
+    "/user/tenants/{tenant_uid}/articles/{uid}": {
+      "$ref": "./openapi/paths/user_tenant_article_show.json"
+    },
+    "/user/organizations/{organization_uid}/articles": {
+      "$ref": "./openapi/paths/user_organization_articles.json"
+    },
+    "/user/organizations/{organization_uid}/articles/{uid}": {
+      "$ref": "./openapi/paths/user_organization_article_show.json"
+    }
+  }
+}
