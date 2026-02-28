@@ -2,6 +2,7 @@ module OmniArticle
   class Admin::ArticlesController < Admin::BaseController
     before_action :add_article_index_breadcrumbs
     before_action :set_article, only: %i[show edit update destroy]
+    before_action :set_tag_quick_inputs, only: %i[new edit]
 
     def index
       authorize [:omni_article, :admin, Article]
@@ -77,6 +78,22 @@ module OmniArticle
         ).tap do |permitted_params|
           permitted_params[:tag_list] = permitted_params[:tag_list].to_s.split(/,|;|，|；|\s+/).compact_blank.join(",")
         end
+      end
+
+      def set_tag_quick_inputs
+        @tag_quick_inputs = tag_quick_inputs_for(article_owner_for_form(@article))
+      end
+
+      def article_owner_for_form(article)
+        article&.owner || UserAuthService.article_owner(current_user)
+      end
+
+      def tag_quick_inputs_for(owner)
+        return [] if owner.blank?
+
+        return owner.ext_info.content_quick_tags if owner.instance_of?(::TenantAuth::Tenant) && owner.ext_info&.content_quick_tags.present?
+
+        Article.frequent_tag_list_for(owner:)
       end
   end
 end

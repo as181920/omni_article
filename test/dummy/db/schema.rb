@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_28_093000) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_28_113000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -439,6 +439,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_28_093000) do
     t.integer "wechat_oauth_scope"
     t.string "permissions", default: [], array: true
     t.integer "implicit_auth_mode"
+    t.string "content_quick_tags", default: [], array: true
     t.index ["tenant_id"], name: "index_tnt_tenant_ext_infos_on_tenant_id", unique: true
   end
 

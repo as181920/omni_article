@@ -12,6 +12,17 @@ module OmniArticle
 
     before_validation :set_initial_attrs, on: :create
 
+    def self.frequent_tag_list_for(owner:, limit: 10)
+      return [] if owner.blank?
+
+      where(owner:)
+        .joins(:tags)
+        .group("tags.name")
+        .order(Arel.sql("COUNT(tags.id) DESC"), "tags.name ASC")
+        .limit(limit)
+        .pluck("tags.name")
+    end
+
     def self.ransackable_attributes(_auth_object = nil)
       %w[id title summary content owner_type owner_id created_at updated_at]
     end

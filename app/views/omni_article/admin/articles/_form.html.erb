@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <div class="form-field align-items-center">
+      <div class="form-field align-items-normal">
         <div class="d-inline-block min-w-6">
           <%= form.label :tag_list, OmniArticle::Article.human_attribute_name(:tag_list), class: "form-label" %>
         </div>
@@ -77,6 +77,16 @@
             <% article.tag_list.each do |tag_name| %>
               <%= tag.span tag_name, class: "badge bg-info me-1" %>
             <% end %>
+          <% end %>
+          <% @tag_quick_inputs.presence&.then do |tag_quick_inputs| %>
+            <div class="mt-2">
+              <%= tag.span t("omni_article.quick_input"), class: "form-text me-2" %>
+              <% tag_quick_inputs.each do |tag_name| %>
+                <%= tag.span tag_name,
+                  data: { action: "click->form#quickInput", form_input_selector_param: "#article_tag_list" },
+                  class: "btn btn-secondary btn-sm me-1 mb-1" %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

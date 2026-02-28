@@ -10,6 +10,7 @@ module OmniArticle
 
       @article = omni_article_articles(:one)
       @owner = @user.tenant
+      (@owner.ext_info || @owner.create_ext_info!).update!(content_quick_tags: [])
     end
 
     test "should get index" do
@@ -32,6 +33,15 @@ module OmniArticle
       assert_select "form[action='#{admin_articles_path}'] input[type='text'][name='article[title]']", count: 1
       assert_select "textarea[name='article[summary]']", count: 1
       assert_select "textarea[name='article[content]'][data-form-target='richText']", count: 1
+    end
+
+    test "should get new with configured tag quick inputs" do
+      (@owner.ext_info || @owner.create_ext_info!).update!(content_quick_tags: %w[文章 展讯])
+
+      get url_for(%i[new admin article])
+
+      assert_select "span.btn[data-action='click->form#quickInput']", text: "文章", count: 1
+      assert_select "span.btn[data-action='click->form#quickInput']", text: "展讯", count: 1
     end
 
     test "should create admin_article" do
@@ -90,6 +100,17 @@ module OmniArticle
       assert_select "textarea[name='article[tag_list]'][data-action='form#validateField form#autoGrow form#autoSplit']",
         value: @article.tag_list,
         count: 1
+    end
+
+    test "should get edit with fallback tag quick inputs" do
+      @article.update!(tag_list: "新闻,展会")
+      Article.create!(owner: @owner, content: "FILLER", tag_list: "新闻,公告")
+
+      get url_for([:edit, :admin, @article])
+
+      assert_select "span.btn[data-action='click->form#quickInput']", text: "新闻", count: 1
+      assert_select "span.btn[data-action='click->form#quickInput']", text: "公告", count: 1
+      assert_select "span.btn[data-action='click->form#quickInput']", text: "展会", count: 1
     end
 
     test "should get edit with icon upload" do

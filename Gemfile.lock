@@ -96,7 +96,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: aca7dd779989a03cade037bd3444ec5a2124b6b4
+  revision: f0c366badab2d3d01b154f505649de677141fbd3
   branch: main
   specs:
     tenant_auth (0.3.0)
