@@ -43,6 +43,7 @@ module OmniArticle
         end
 
         relative_path = Pathname.new(relative_path).cleanpath.to_s
+        relative_path = relative_path.delete_prefix("openapi/")
         return if relative_path.blank? || relative_path.start_with?("..") || relative_path.include?("\\")
 
         relative_path

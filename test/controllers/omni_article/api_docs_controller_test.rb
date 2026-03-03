@@ -20,7 +20,7 @@ module OmniArticle
     end
 
     test "should get openapi path file" do
-      get openapi_spec_file_path(path: "paths/user_tenant_articles.json")
+      get openapi_spec_file_path(path: "openapi/paths/user_tenant_articles.json")
 
       assert_response :success
       assert_equal "Tenant article list for mini-program or H5 user side", @response.parsed_body.dig("get", "summary")
