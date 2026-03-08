@@ -105,7 +105,11 @@ en:
         title: "Title"
         summary: "Summary"
         content: "Content"
+        list_display_style: "List display style"
         created_at: "Created at"
         updated_at: "Updated at"
         tag_list: "Tags"
         icon: "Icon"
+      omni_article/article/list_display_style_values:
+        small: "Small article"
+        large: "Large article"

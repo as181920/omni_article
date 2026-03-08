@@ -55,6 +55,7 @@ module OmniArticle
 
       assert_equal @article.uid, @response.parsed_body.dig(0, "uid")
       assert_equal @article.summary, @response.parsed_body.dig(0, "summary")
+      assert_equal @article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body.dig(0, "list_display_style")
     end
 
     test "should get organization article index" do
@@ -81,6 +82,7 @@ module OmniArticle
 
       assert_equal @organization_article.uid, @response.parsed_body.dig(0, "uid")
       assert_equal @organization_article.summary, @response.parsed_body.dig(0, "summary")
+      assert_equal @organization_article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body.dig(0, "list_display_style")
     end
 
     test "should show tenant article from owner route as json" do
@@ -94,6 +96,7 @@ module OmniArticle
 
       assert_equal @article.uid, @response.parsed_body["uid"]
       assert_equal @article.summary, @response.parsed_body["summary"]
+      assert_equal @article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body["list_display_style"]
     end
 
     test "should show organization article from owner route as json" do
@@ -107,6 +110,7 @@ module OmniArticle
 
       assert_equal @organization_article.uid, @response.parsed_body["uid"]
       assert_equal @organization_article.summary, @response.parsed_body["summary"]
+      assert_equal @organization_article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body["list_display_style"]
     end
   end
 end

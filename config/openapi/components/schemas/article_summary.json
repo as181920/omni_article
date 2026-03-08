@@ -5,6 +5,7 @@
     "uid",
     "title",
     "summary",
+    "list_display_style",
     "updated_at",
     "url",
     "icon_url",
@@ -27,6 +28,11 @@
       "type": "string",
       "nullable": true,
       "example": "本周将上线数字人接待、智能讲解和线索采集联动。"
+    },
+    "list_display_style": {
+      "type": "string",
+      "enum": ["small", "large"],
+      "example": "small"
     },
     "updated_at": {
       "type": "string",

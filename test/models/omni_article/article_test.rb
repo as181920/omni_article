@@ -16,6 +16,18 @@ module OmniArticle
       assert_predicate article.uid, :present?
     end
 
+    test "ui settings should fallback list display style to small" do
+      ui_settings = Article::UiSettings.new
+
+      assert_equal "small", ui_settings.list_display_style
+    end
+
+    test "ui settings should read list display style from custom_settings" do
+      ui_settings = Article::UiSettings.new("ui" => { "list_display_style" => "large" })
+
+      assert_equal "large", ui_settings.list_display_style
+    end
+
     test "should acts as taggable on tags" do
       article = omni_article_articles(:one)
 

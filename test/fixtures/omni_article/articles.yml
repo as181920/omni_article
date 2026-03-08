@@ -4,6 +4,9 @@ one:
   title: "OMNI ARTICLE TITLE ONE"
   summary: "OMNI ARTICLE SUMMARY ONE"
   content: "<p>OMNI ARTICLE CONTENT ONE</p>"
+  custom_settings:
+    ui:
+      list_display_style: "small"
 
 two:
   owner: one (OrganizationAuth::Organization)
@@ -11,3 +14,6 @@ two:
   title: "OMNI ARTICLE TITLE TWO"
   summary: "OMNI ARTICLE SUMMARY TWO"
   content: "<p>OMNI ARTICLE CONTENT TWO</p>"
+  custom_settings:
+    ui:
+      list_display_style: "large"

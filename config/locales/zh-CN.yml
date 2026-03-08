@@ -102,7 +102,11 @@ zh-CN:
         title: "标题"
         summary: "概要"
         content: "内容"
+        list_display_style: "列表展示形式"
         created_at: "创建于"
         updated_at: "更新于"
         tag_list: "标签"
         icon: "图标"
+      omni_article/article/list_display_style_values:
+        small: "小图文"
+        large: "大图文"

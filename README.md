@@ -5,6 +5,8 @@
 
 - `GET /omni_article/api-docs`
 - `GET /omni_article/api-docs/openapi.json`
+- Article UI-specific rendering preferences should live in `article.custom_settings`, not dedicated columns.
+- Current user-side article payload includes `list_display_style` derived from `OmniArticle::Article::UiSettings`.
 
 ## Installation
 Add this line to your application's Gemfile:

@@ -27,6 +27,7 @@ module OmniArticle
 
       assert_equal @article.uid, @response.parsed_body["uid"]
       assert_equal @article.summary, @response.parsed_body["summary"]
+      assert_equal @article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body["list_display_style"]
     end
 
     test "should show blank page when article not exist" do

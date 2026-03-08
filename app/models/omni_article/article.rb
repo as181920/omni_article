@@ -35,6 +35,7 @@ module OmniArticle
 
       def set_initial_attrs
         self.uid ||= SecureRandom.base58
+        self.custom_settings ||= {}
       end
   end
 end

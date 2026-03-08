@@ -27,12 +27,18 @@ module OmniArticle
       assert_response :success
     end
 
-    test "should get new with summary field" do
+    test "should get new with summary and content fields" do
       get url_for(%i[new admin article])
 
       assert_select "form[action='#{admin_articles_path}'] input[type='text'][name='article[title]']", count: 1
       assert_select "textarea[name='article[summary]']", count: 1
       assert_select "textarea[name='article[content]'][data-form-target='richText']", count: 1
+    end
+
+    test "should get new with list display style field" do
+      get url_for(%i[new admin article])
+
+      assert_select "select[name='article[custom_settings][ui][list_display_style]']", count: 1
     end
 
     test "should get new with configured tag quick inputs" do
@@ -63,6 +69,12 @@ module OmniArticle
       assert_equal "SUMMARY", record.summary
     end
 
+    test "should create admin_article with custom settings" do
+      post admin_articles_path, params: { article: { content: "FILLER", custom_settings: { ui: { list_display_style: "large" } } } }
+
+      assert_equal "large", Article.last.custom_settings.dig("ui", "list_display_style")
+    end
+
     test "should show article" do
       get admin_article_path(@article)
 
@@ -86,12 +98,18 @@ module OmniArticle
       assert_response :success
     end
 
-    test "should get edit with summary field" do
+    test "should get edit with summary and content fields" do
       get url_for([:edit, :admin, @article])
 
       assert_select "form[action='#{admin_article_path(@article)}'] input[type='text'][name='article[title]']", count: 1, value: @article.title
       assert_select "textarea[name='article[summary]']", text: @article.summary, count: 1
       assert_select "textarea[name='article[content]'][data-form-target='richText']", value: @article.content, count: 1
+    end
+
+    test "should get edit with selected list display style" do
+      get url_for([:edit, :admin, @article])
+
+      assert_select "select[name='article[custom_settings][ui][list_display_style]'] option[selected='selected'][value='small']", count: 1
     end
 
     test "should get edit with tag field" do
@@ -157,10 +175,22 @@ module OmniArticle
       assert_includes @response.body, @article.summary
     end
 
+    test "should show article list display style" do
+      get admin_article_path(@article)
+
+      assert_includes @response.body, I18n.t("activerecord.attributes.omni_article/article.list_display_style_values.small")
+    end
+
     test "should update article tag list" do
       patch admin_article_path(@article), params: { article: { tag_list: "xxxxxx,yyyyyy" } }
 
       assert_equal %w[xxxxxx yyyyyy], @article.reload.tag_list
+    end
+
+    test "should update article list display style" do
+      patch admin_article_path(@article), params: { article: { content: @article.content, custom_settings: { ui: { list_display_style: "large" } } } }
+
+      assert_equal "large", @article.reload.custom_settings.dig("ui", "list_display_style")
     end
 
     test "should destroy admin_article" do

@@ -1,3 +1,5 @@
+<% ui_settings = OmniArticle::Article::UiSettings.new(article.custom_settings) %>
+
 <div class="card">
   <div class="card-body">
     <%= tag.h3 do %>
@@ -57,6 +59,17 @@
         <%= tag.div article.icon.filename.to_s, class: "preview-filename" %>
       <% end %>
     </div>
+
+    <details class="mt-4">
+      <%= tag.summary t("omni_article.more") %>
+
+      <div class="form-field align-items-center mt-3">
+        <div class="d-inline-block min-w-6">
+          <%= label_tag :list_display_style, OmniArticle::Article.human_attribute_name(:list_display_style), class: "form-label me-2" %>
+        </div>
+        <%= tag.span OmniArticle::Article.human_attribute_name("list_display_style_values.#{ui_settings.list_display_style}") %>
+      </div>
+    </details>
 
     <div class="form-field align-items-center mt-5">
       <% if policy([:omni_article, :admin, article]).edit? %>

@@ -2,6 +2,8 @@
   <%= rich_text_editor_assets %>
 <% end %>
 
+<% ui_settings = OmniArticle::Article::UiSettings.new(article.custom_settings) %>
+
 <div class="card">
   <div class="card-body">
     <%= tag.h3 do %>
@@ -128,6 +130,28 @@
           <% end %>
         <% end %>
       </div>
+
+      <details class="mt-4">
+        <%= tag.summary t("omni_article.more") %>
+
+        <div class="mt-3">
+          <%= form.fields_for :custom_settings, article.custom_settings.to_h do |custom_settings_form| %>
+            <%= custom_settings_form.fields_for :ui, article.custom_settings.to_h.fetch("ui", {}) do |ui_form| %>
+              <div class="form-field">
+                <div class="d-inline-block w-6">
+                  <%= ui_form.label :list_display_style,
+                    OmniArticle::Article.human_attribute_name(:list_display_style),
+                    class: "form-label pe-2" %>
+                </div>
+                <%= ui_form.select :list_display_style,
+                  options_for_select(ui_settings.list_display_style_options, ui_settings.list_display_style),
+                  {},
+                  class: "form-control" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </details>
 
       <div class="form-field align-items-center">
         <div class="d-inline-block min-w-6"></div>
