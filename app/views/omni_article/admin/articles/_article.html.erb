@@ -54,9 +54,13 @@
       <div class="d-inline-block min-w-6">
         <%= label_tag :icon, OmniArticle::Article.human_attribute_name(:icon), class: "form-label" %>
       </div>
-      <%= tag.div class: "preview-wrapper d-inline-flex flex-direction-column max-w-6 max-h-6 mt-1 me-2" do %>
-        <%= image_tag cdn_url(article.icon), alt: " ", class: "max-w-6 max-h-6" %>
-        <%= tag.div article.icon.filename.to_s, class: "preview-filename" %>
+      <% if article.icon.present? %>
+        <%= tag.div class: "preview-wrapper d-inline-flex flex-direction-column max-w-6 max-h-6 mt-1 me-2" do %>
+          <%= image_tag cdn_url(article.icon), alt: " ", class: "max-w-6 max-h-6" %>
+          <%= tag.div article.icon.filename.to_s, class: "preview-filename" %>
+        <% end %>
+      <% else %>
+        <%= tag.div t("omni_article.none") %>
       <% end %>
     </div>
 
