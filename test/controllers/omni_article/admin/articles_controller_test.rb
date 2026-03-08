@@ -178,7 +178,7 @@ module OmniArticle
     test "should show article list display style" do
       get admin_article_path(@article)
 
-      assert_includes @response.body, I18n.t("activerecord.attributes.omni_article/article.list_display_style_values.small")
+      assert_includes @response.body, OmniArticle::Article.human_attribute_name("list_display_style_values.small")
     end
 
     test "should update article tag list" do
