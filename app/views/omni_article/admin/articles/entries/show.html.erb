@@ -18,7 +18,28 @@
               <div class="col-6">
                 <%= tag.div class: "callout border-left-info" do %>
                   <%= tag.div t("omni_article.url"), class: "card-title" %>
-                  <%= tag.div url, class: "fw-500" %>
+                  <%= tag.div data: { controller: "clipboard" }, class: "d-inline-flex" do %>
+                    <%= tag.span url, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1" %>
+                    <%= inline_svg_tag "easy_style/icon_copy.svg",
+                      data: { clipboard_target: "copy", action: "click->clipboard#copy" },
+                      class: "ms-2 text-secondary" %>
+                    <%= inline_svg_tag "easy_style/icon_check.svg",
+                      data: { clipboard_target: "copied" },
+                      class: "ms-2 text-secondary d-none" %>
+                  <% end %>
+                <% end %>
+
+                <%= tag.div class: "callout border-left-info" do %>
+                  <%= tag.div OmniArticle::Article.human_attribute_name(:uid), class: "card-title" %>
+                  <%= tag.div data: { controller: "clipboard" }, class: "d-inline-flex" do %>
+                    <%= tag.span @article.uid, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1" %>
+                    <%= inline_svg_tag "easy_style/icon_copy.svg",
+                      data: { clipboard_target: "copy", action: "click->clipboard#copy" },
+                      class: "ms-2 text-secondary" %>
+                    <%= inline_svg_tag "easy_style/icon_check.svg",
+                      data: { clipboard_target: "copied" },
+                      class: "ms-2 text-secondary d-none" %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
