@@ -7,7 +7,7 @@ module OmniArticle
     def index
       authorize [:omni_article, :admin, Article]
       @q = policy_scope([:omni_article, :admin, Article])
-        .then { |scope| params.dig(:q, :s).present? ? scope : scope.order(id: :desc) }
+        .then { |scope| params[:q].is_a?(ActionController::Parameters) && params[:q][:s].present? ? scope : scope.order(id: :desc) }
         .ransack(params[:q])
       @articles = @q.result
         .select(:id, :uid, :title, :summary, :owner_type, :owner_id, :created_at, :updated_at)

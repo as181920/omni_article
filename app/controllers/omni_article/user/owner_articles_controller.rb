@@ -10,7 +10,7 @@ module OmniArticle
       @q = policy_scope([:omni_article, :user, Article])
         .where(owner: article_owner)
         .then { |scope| params[:tag].present? ? scope.tagged_with(params[:tag]) : scope }
-        .then { |scope| params.dig(:q, :s).present? ? scope : scope.order(updated_at: :desc, id: :desc) }
+        .then { |scope| params[:q].is_a?(ActionController::Parameters) && params[:q][:s].present? ? scope : scope.order(updated_at: :desc, id: :desc) }
         .ransack(params[:q])
       @articles = @q.result.page(params[:page]).per(params[:per] || 10)
 
