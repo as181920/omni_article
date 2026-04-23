@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_21_093000) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_23_203111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -901,8 +901,4 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_21_093000) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_wxpay_verify_files_on_name", unique: true
   end
-
-  add_foreign_key "org_users", "org_organizations", column: "organization_id"
-  add_foreign_key "taggings", "tags"
-  add_foreign_key "wxpay_public_keys", "wxpay_vendors", column: "vendor_id"
 end
