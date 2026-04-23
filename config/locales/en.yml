@@ -69,6 +69,8 @@ en:
     suspend: "Suspend"
     close: "Close"
     refresh_page: "Refresh page"
+    history_back: "Back"
+    history_forward: "Forward"
     total_campaigns_count: "Total campaigns count"
     ongoing_campaigns_count: "Ongoing campaigns count"
     total_promoters_count: "Total promoters count"
@@ -110,6 +112,7 @@ en:
         updated_at: "Updated at"
         tag_list: "Tags"
         icon: "Icon"
+        show_history_nav: "Show bottom back/forward nav"
       omni_article/article/list_display_style_values:
         small: "Small article"
         large: "Large article"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_21_093000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
     t.string "code"
     t.text "description"
     t.bigint "parent_id"
+    t.boolean "allow_contra_balance"
     t.index ["holder_id", "holder_type", "name"], name: "index_omni_account_accounts_on_holder_and_name", unique: true
     t.index ["normal_balance"], name: "index_omni_account_accounts_on_normal_balance"
     t.index ["parent_id"], name: "index_omni_account_accounts_on_parent_id"
@@ -116,6 +117,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
     t.jsonb "settings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "label"
     t.index ["owner_type", "owner_id"], name: "index_omni_pay_payment_methods_on_owner"
   end
 
@@ -532,6 +534,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
     t.index ["address"], name: "index_usr_emails_on_address", unique: true
   end
 
+  create_table "usr_identity_cards", force: :cascade do |t|
+    t.string "uid"
+    t.string "code"
+    t.integer "state"
+    t.jsonb "custom_settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_usr_identity_cards_on_code", unique: true
+    t.index ["uid"], name: "index_usr_identity_cards_on_uid", unique: true
+  end
+
   create_table "usr_locations", force: :cascade do |t|
     t.bigint "user_id"
     t.string "coordinate_type"
@@ -596,6 +609,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
     t.index ["code"], name: "index_usr_user_credentials_on_code", unique: true
     t.index ["token"], name: "index_usr_user_credentials_on_token", unique: true
     t.index ["user_id"], name: "index_usr_user_credentials_on_user_id"
+  end
+
+  create_table "usr_user_delegations", force: :cascade do |t|
+    t.bigint "principal_user_id"
+    t.bigint "target_user_id"
+    t.jsonb "custom_settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["principal_user_id", "target_user_id"], name: "index_usr_user_delegations_on_principal_and_target", unique: true
+    t.index ["principal_user_id"], name: "index_usr_user_delegations_on_principal_user_id"
+    t.index ["target_user_id"], name: "index_usr_user_delegations_on_target_user_id"
   end
 
   create_table "usr_user_origins", force: :cascade do |t|
@@ -830,6 +854,16 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
     t.index ["vendor_id"], name: "index_wxpay_profit_sharing_receivers_on_vendor_id"
   end
 
+  create_table "wxpay_public_keys", force: :cascade do |t|
+    t.bigint "vendor_id"
+    t.string "key_id"
+    t.text "pem"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vendor_id", "key_id"], name: "index_wxpay_public_keys_on_vendor_id_and_key_id", unique: true
+    t.index ["vendor_id"], name: "index_wxpay_public_keys_on_vendor_id"
+  end
+
   create_table "wxpay_settlement_accounts", force: :cascade do |t|
     t.string "sub_mch_id"
     t.string "account_type"
@@ -870,4 +904,5 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_08_143000) do
 
   add_foreign_key "org_users", "org_organizations", column: "organization_id"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "wxpay_public_keys", "wxpay_vendors", column: "vendor_id"
 end

@@ -1,6 +1,7 @@
 <%= content_for :title, @article.title %>
 
 <%= render "omni_article/user/articles/wechat_web_config", article: @article if browser.wechat? %>
+<% ui_settings = OmniArticle::Article::UiSettings.new(@article.custom_settings) %>
 
 <section>
   <div class="card">
@@ -9,3 +10,5 @@
     </div>
   </div>
 </section>
+
+<%= render "omni_article/user/articles/history_nav" if ui_settings.show_history_nav %>

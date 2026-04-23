@@ -28,6 +28,18 @@ module OmniArticle
       assert_equal "large", ui_settings.list_display_style
     end
 
+    test "ui settings should fallback show history nav to false" do
+      ui_settings = Article::UiSettings.new
+
+      assert_not ui_settings.show_history_nav
+    end
+
+    test "ui settings should read show history nav from custom_settings" do
+      ui_settings = Article::UiSettings.new("ui" => { "show_history_nav" => "1" })
+
+      assert ui_settings.show_history_nav
+    end
+
     test "should acts as taggable on tags" do
       article = omni_article_articles(:one)
 

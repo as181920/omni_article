@@ -68,10 +68,19 @@
       <%= tag.summary t("omni_article.more") %>
 
       <div class="form-field align-items-center mt-3">
-        <div class="d-inline-block min-w-6">
+        <div class="d-inline-block min-w-12">
           <%= label_tag :list_display_style, OmniArticle::Article.human_attribute_name(:list_display_style), class: "form-label me-2" %>
         </div>
         <%= tag.span OmniArticle::Article.human_attribute_name("list_display_style_values.#{ui_settings.list_display_style}") %>
+      </div>
+
+      <div class="form-field align-items-center">
+        <div class="d-inline-block min-w-12">
+          <%= label_tag :show_history_nav, OmniArticle::Article.human_attribute_name(:show_history_nav), class: "form-label pe-2" %>
+        </div>
+        <div class="switch">
+          <%= check_box_tag :show_history_nav, "1", ui_settings.show_history_nav, disabled: true %>
+        </div>
       </div>
     </details>
 

@@ -138,7 +138,7 @@
           <%= form.fields_for :custom_settings, article.custom_settings.to_h do |custom_settings_form| %>
             <%= custom_settings_form.fields_for :ui, article.custom_settings.to_h.fetch("ui", {}) do |ui_form| %>
               <div class="form-field">
-                <div class="d-inline-block w-6">
+                <div class="d-inline-block min-w-12">
                   <%= ui_form.label :list_display_style,
                     OmniArticle::Article.human_attribute_name(:list_display_style),
                     class: "form-label pe-2" %>
@@ -147,6 +147,17 @@
                   options_for_select(ui_settings.list_display_style_options, ui_settings.list_display_style),
                   {},
                   class: "form-control" %>
+              </div>
+
+              <div class="form-field">
+                <div class="d-inline-block min-w-12">
+                  <%= ui_form.label :show_history_nav,
+                    OmniArticle::Article.human_attribute_name(:show_history_nav),
+                    class: "form-label pe-2" %>
+                </div>
+                <div class="switch">
+                  <%= ui_form.check_box :show_history_nav, { checked: ui_settings.show_history_nav }, "1", "0" %>
+                </div>
               </div>
             <% end %>
           <% end %>

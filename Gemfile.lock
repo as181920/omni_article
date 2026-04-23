@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: e172b17563bf32ba8773bbbbae39343aeca337f2
+  revision: 606a3c31dba25759a952bf9487831757f78da1bb
   branch: main
   specs:
     easy_style (0.3.0)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_account.git
-  revision: 7bffb3e941aca6a606036c0bcf7bff7f125e6957
+  revision: 6038c83254eca8d31a5aa6ef218dad5895526d9b
   branch: master
   specs:
     omni_account (0.2.1)
@@ -44,7 +44,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 081463ba2772449d6a489d1af586dcdc48b90bd0
+  revision: 0addbb168591b4fe11cc11fa2c2d90fd065268ea
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -53,11 +53,12 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
-  revision: b6f757b964d5a5b5e35b0fddb7c6c9e4dbaba031
+  revision: 53259b2a837b704d52fab8b237ea744c99bad7c9
   branch: master
   specs:
     omni_region (0.2.0)
       jbuilder
+      kaminari
       rails (>= 6.1)
       ransack
       rgeo
@@ -73,7 +74,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 32789304f00ee1f4df2afcda8ee93f7bb923bd02
+  revision: 9238df25a60739e238d60184a400a1a32edad1da
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -96,7 +97,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: c9e79b36f4be4590d08b26465d16d2118b9d8270
+  revision: 17406a85b581d66810daed497b9150d03f52cd20
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -119,7 +120,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 2927062d3ca3c6b4756b56e4bcef18ffc2f999b9
+  revision: 751e5caf9e8e87ebdd0a8973233c04de7fb50221
   branch: main
   specs:
     user_auth (0.2.0)
@@ -142,7 +143,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: b28f91261c9124ad54e87c63ad8b7f5057f76393
+  revision: 34768cf6c6b51c572ed9d23e6d6744b3fcabd13e
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
@@ -155,7 +156,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.pay/wechat_vendor_platform_proxy.git
-  revision: b8cc6bd85bc0951a2cb230a3434f8585b154ec9e
+  revision: 1cc39d5601b91d60da7cd9bfed840e8a9dd29338
   branch: master
   specs:
     wechat_vendor_platform_proxy (0.1.1)

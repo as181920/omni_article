@@ -16,6 +16,16 @@ module OmniArticle
       assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
     end
 
+    test "should render history nav when enabled" do
+      @article.update!(custom_settings: @article.custom_settings.deep_merge("ui" => { "show_history_nav" => "1" }))
+
+      get user_article_path(@article.uid)
+
+      assert_includes @response.body, "omni-article-history-nav"
+      assert_includes @response.body, I18n.t("omni_article.history_back")
+      assert_includes @response.body, I18n.t("omni_article.history_forward")
+    end
+
     test "should show article as json" do
       get user_article_path(@article.uid), as: :json
 

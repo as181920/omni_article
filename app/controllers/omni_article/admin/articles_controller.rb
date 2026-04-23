@@ -75,7 +75,7 @@ module OmniArticle
         params.fetch(:article, {}).permit(
           :title, :summary, :template, :content,
           :icon, :tag_list,
-          custom_settings: { ui: %i[list_display_style] }
+          custom_settings: { ui: %i[list_display_style show_history_nav] }
         ).tap do |permitted_params|
           permitted_params[:tag_list] = permitted_params[:tag_list].to_s.split(/,|;|，|；|\s+/).compact_blank.join(",")
         end

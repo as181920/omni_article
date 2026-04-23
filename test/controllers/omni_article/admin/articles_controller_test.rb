@@ -41,6 +41,12 @@ module OmniArticle
       assert_select "select[name='article[custom_settings][ui][list_display_style]']", count: 1
     end
 
+    test "should get new with show history nav field" do
+      get url_for(%i[new admin article])
+
+      assert_select "input[type='checkbox'][name='article[custom_settings][ui][show_history_nav]']", count: 1
+    end
+
     test "should get new with configured tag quick inputs" do
       (@owner.ext_info || @owner.create_ext_info!).update!(content_quick_tags: %w[文章 展讯])
 
@@ -70,9 +76,10 @@ module OmniArticle
     end
 
     test "should create admin_article with custom settings" do
-      post admin_articles_path, params: { article: { content: "FILLER", custom_settings: { ui: { list_display_style: "large" } } } }
+      post admin_articles_path, params: { article: { content: "FILLER", custom_settings: { ui: { list_display_style: "large", show_history_nav: "1" } } } }
 
       assert_equal "large", Article.last.custom_settings.dig("ui", "list_display_style")
+      assert_equal "1", Article.last.custom_settings.dig("ui", "show_history_nav")
     end
 
     test "should show article" do
@@ -191,6 +198,12 @@ module OmniArticle
       patch admin_article_path(@article), params: { article: { content: @article.content, custom_settings: { ui: { list_display_style: "large" } } } }
 
       assert_equal "large", @article.reload.custom_settings.dig("ui", "list_display_style")
+    end
+
+    test "should update article show history nav" do
+      patch admin_article_path(@article), params: { article: { content: @article.content, custom_settings: { ui: { show_history_nav: "1" } } } }
+
+      assert_equal "1", @article.reload.custom_settings.dig("ui", "show_history_nav")
     end
 
     test "should destroy admin_article" do

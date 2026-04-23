@@ -66,6 +66,8 @@ zh-CN:
     url: "链接"
     qr_code: "二维码"
     refresh_page: "刷新页面"
+    history_back: "后退"
+    history_forward: "前进"
     total_campaigns_count: "总推广活动数"
     ongoing_campaigns_count: "进行中活动数"
     total_promoters_count: "总推广员人数"
@@ -107,6 +109,7 @@ zh-CN:
         updated_at: "更新于"
         tag_list: "标签"
         icon: "图标"
+        show_history_nav: "显示底部前进/后退"
       omni_article/article/list_display_style_values:
         small: "小图文"
         large: "大图文"
