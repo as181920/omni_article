@@ -7,6 +7,7 @@ require "jbuilder"
 require "kaminari"
 require "pundit"
 require "ransack"
+require "ruby_llm"
 
 module OmniArticle
   class Engine < ::Rails::Engine

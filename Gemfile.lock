@@ -44,7 +44,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 0addbb168591b4fe11cc11fa2c2d90fd065268ea
+  revision: b101e95a68df2564490395a0afaa5a44fd5d129a
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -97,7 +97,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 17406a85b581d66810daed497b9150d03f52cd20
+  revision: d3635f037454cdd63d6a27f4a83ba5b8eca5acb7
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -143,7 +143,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: 34768cf6c6b51c572ed9d23e6d6744b3fcabd13e
+  revision: 74020ccc5f76873bdd3f7d2e4277970ef45f52a5
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
@@ -181,6 +181,7 @@ PATH
       pundit
       rails (>= 7.1)
       ransack
+      ruby_llm
 
 GEM
   remote: https://rubygems.org/
@@ -314,6 +315,7 @@ GEM
     drb (2.2.3)
     erb (5.0.2)
     erubi (1.13.1)
+    event_stream_parser (1.0.0)
     faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -322,6 +324,8 @@ GEM
       multipart-post (~> 2.0)
     faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
+    faraday-retry (2.4.0)
+      faraday (~> 2.0)
     ffi (1.17.2-x86_64-linux-gnu)
     formatador (1.1.1)
     geocoder (1.8.5)
@@ -572,6 +576,17 @@ GEM
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
+    ruby_llm (1.14.1)
+      base64
+      event_stream_parser (~> 1)
+      faraday (>= 1.10.0)
+      faraday-multipart (>= 1)
+      faraday-net_http (>= 1)
+      faraday-retry (>= 1)
+      marcel (~> 1)
+      ruby_llm-schema (~> 0)
+      zeitwerk (~> 2)
+    ruby_llm-schema (0.3.0)
     rubyzip (2.4.1)
     rucaptcha (3.3.0-x86_64-linux)
       railties (>= 3.2)
