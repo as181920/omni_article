@@ -3,13 +3,13 @@ require "omni_article/engine"
 module OmniArticle
   def self.easy_agent_agents
     [
-      Agents::ConciergeAgent
+      ConciergeAgent
     ]
   end
 
   def self.easy_agent_tools
     [
-      AgentTools::SearchArticlesTool
+      SearchArticlesTool
     ]
   end
 end
