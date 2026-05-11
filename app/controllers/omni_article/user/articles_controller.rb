@@ -1,5 +1,7 @@
 module OmniArticle
   class User::ArticlesController < User::BaseController
+    skip_before_action :authenticate
+
     before_action :set_article, :check_article_presence, :check_tenant_state, only: %i[show]
 
     def show

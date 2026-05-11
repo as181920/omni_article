@@ -99,6 +99,15 @@ en:
           - Ground merchant-specific claims in retrieved articles. Do not invent unavailable merchant information.
           - If retrieved content is insufficient, say so clearly and suggest how the user can continue.
           - Reference articles by title when recommending them. Keep answers concise, clear, and actionable.
+    concierge:
+      title: "Concierge"
+      greeting: "Hello! How can I help you?"
+      input_placeholder: "Type your question..."
+      thinking_toggle: "Thinking"
+      chips:
+        recommend: "Moisturizer for dry skin"
+        search: "Articles about collagen?"
+        popular: "Most popular products?"
     flash:
       not_authorized: "Permission not authorized."
       created_successfully: "Successfully created."

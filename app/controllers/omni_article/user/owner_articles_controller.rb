@@ -2,6 +2,8 @@ module OmniArticle
   class User::OwnerArticlesController < User::BaseController
     include User::ArticleOwnerContext
 
+    skip_before_action :authenticate
+
     before_action :set_article_owner
     before_action :check_tenant_state
     before_action :set_article, :check_article_presence, only: %i[show]

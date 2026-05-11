@@ -35,11 +35,10 @@ module OmniArticle
       end
 
       def apply_query(scope, query)
-        keyword = query.to_s.strip
-        return scope if keyword.blank?
+        keywords = query.to_s.strip.split(/\s+/)
+        return scope if keywords.blank?
 
-        pattern = "%#{ActiveRecord::Base.sanitize_sql_like(keyword)}%"
-        scope.where("title ILIKE :pattern OR summary ILIKE :pattern OR content ILIKE :pattern", pattern:)
+        scope.ransack(title_or_summary_or_content_cont_any: keywords).result
       end
 
       def normalized_limit(limit)

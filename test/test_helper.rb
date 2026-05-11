@@ -24,20 +24,24 @@ require "debug"
 require "minitest/reporters"
 Minitest::Reporters.use!
 
+require_relative "support/easy_agent_mock"
+
 class ActiveSupport::TestCase
   setup do
     @session_id = Rack::Session::SessionId.new(SecureRandom.hex)
     ActionDispatch::Request::Session.any_instance.stubs(:id).returns(@session_id)
   end
 
-  def set_session(key, value)
-    get omni_article.welcome_index_path
-    session[key] = value
-  end
-
   def sign_in_as(user, password: "password")
-    post tenant_auth.sessions_path, params: { session: { name: user.name, password: } }
-    get omni_article.welcome_index_path # ensure tnt_biz routes used as default
+    url = case user
+          when UserAuth::User then user_auth.normal_sessions_path
+          when TenantAuth::User then tenant_auth.sessions_path
+          when OrganizationAuth::User then organization_auth.sessions_path
+          else raise ArgumentError, "Unsupported user type: #{user.class.name}"
+          end
+
+    post url, params: { session: { name: user.name, password: } }
+    get omni_article.welcome_index_path # ensure engine routes used as default
   end
 
   def sign_out_current

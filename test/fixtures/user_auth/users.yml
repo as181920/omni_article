@@ -1,0 +1,14 @@
+one:
+  uid: "USER_ONE_UID"
+  name: "USER_NAME_ONE"
+  password_digest: <%= BCrypt::Password.create("password", cost: 5) %>
+
+two:
+  uid: "USER_TWO_UID"
+  name: "USER_NAME_TWO"
+  password_digest: <%= BCrypt::Password.create("password", cost: 5) %>
+
+three:
+  uid: "USER_THREE_UID"
+  name: "USER_NAME_THREE"
+  password_digest: <%= BCrypt::Password.create("password", cost: 5) %>

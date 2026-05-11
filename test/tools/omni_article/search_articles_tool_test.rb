@@ -19,7 +19,8 @@ module OmniArticle
 
       results = tool.execute(query: "CONTENT TWO", limit: 5)
 
-      assert_empty results
+      assert_equal 1, results.size  # "CONTENT" matches article one, "TWO" does not
+      assert_match(/CONTENT ONE/, results.first.fetch("content_excerpt"))
     end
 
     test "limits result count" do

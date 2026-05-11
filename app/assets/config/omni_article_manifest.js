@@ -1,1 +1,1 @@
-//= link_directory ../stylesheets/omni_article .css
+//= link_tree ../stylesheets/omni_article
