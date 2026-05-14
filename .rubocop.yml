@@ -26,6 +26,10 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/LineLength:
   Max: 150
 
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: keyword
+
 Metrics/AbcSize:
   Max: 35
 

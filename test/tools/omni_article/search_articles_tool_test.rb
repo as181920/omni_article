@@ -33,6 +33,16 @@ module OmniArticle
       assert_equal 1, results.size
     end
 
+    test "matches Chinese keyword inside full user sentence" do
+      owner = tenant_auth_tenants(:one)
+      article = Article.create!(owner:, title: "重组胶原蛋白敷贴", summary: "医用皮肤修复", content: "适合关注胶原蛋白护理的用户")
+      tool = SearchArticlesTool.new(context: context_for(owner))
+
+      results = tool.execute(query: "我想补充胶原蛋白有没有推荐", limit: 5)
+
+      assert_includes results.map { |result| result.fetch("gid") }, article.to_gid.to_s
+    end
+
     private
 
       def context_for(owner)

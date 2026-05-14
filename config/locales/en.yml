@@ -95,6 +95,7 @@ en:
 
           Rules:
           - When the user asks about products, services, article content, or specific needs, prefer calling the search_articles tool first.
+          - When calling search_articles, use short keywords such as product names, ingredients, or service names. Do not pass the full long sentence as query.
           - Do not call the tool for simple greetings or small talk.
           - Ground merchant-specific claims in retrieved articles. Do not invent unavailable merchant information.
           - If retrieved content is insufficient, say so clearly and suggest how the user can continue.

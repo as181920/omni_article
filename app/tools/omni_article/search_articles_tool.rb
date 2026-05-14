@@ -3,9 +3,9 @@ module OmniArticle
     DEFAULT_LIMIT = 5
     MAX_LIMIT = 10
 
-    description "Search merchant articles by keyword and return concise article references."
+    description "Search merchant articles by short product, service, or article keywords and return concise article references."
 
-    param :query, desc: "User question or keywords for searching merchant articles"
+    param :query, desc: "Short search keywords. Prefer product/service terms instead of the full user sentence."
     param :limit, type: "integer", desc: "Maximum article count to return", required: false
 
     def initialize(context:)
@@ -35,10 +35,33 @@ module OmniArticle
       end
 
       def apply_query(scope, query)
-        keywords = query.to_s.strip.split(/\s+/)
+        keywords = search_terms(query)
         return scope if keywords.blank?
 
         scope.ransack(title_or_summary_or_content_cont_any: keywords).result
+      end
+
+      def search_terms(query)
+        query = query.to_s.strip
+        return [] if query.blank?
+
+        terms = query.scan(/[[:alnum:]]+|[\p{Han}\p{Katakana}\p{Hiragana}\p{Hangul}]{2,}/)
+        terms += cjk_ngrams(terms)
+        terms.uniq.first(80).presence || [query]
+      end
+
+      def cjk_ngrams(terms)
+        terms
+          .select { |term| term.match?(/\A[\p{Han}\p{Katakana}\p{Hiragana}\p{Hangul}]+\z/) }
+          .flat_map { |term| ngrams(term, min: 2, max: 8) }
+      end
+
+      def ngrams(term, min:, max:)
+        max = [max, term.length].min
+
+        (min..max).flat_map do |size|
+          term.chars.each_cons(size).map(&:join)
+        end.uniq
       end
 
       def normalized_limit(limit)
