@@ -1,6 +1,6 @@
 # Mock EasyAgent — omni_article does not take a hard gem dependency on easy_agent.
 # The host app wires them together at runtime.
-# Defined once in the test support path and shared across all concierge tests.
+# Defined once in the test support path and shared across agent tool tests.
 
 module EasyAgent
   class Conversation; end

@@ -83,20 +83,6 @@ zh-CN:
     breadcrumbs:
       home: "首页"
       dashboard: "概览"
-    agents:
-      concierge:
-        default_scope_name: "商家"
-        user_input: "用户问题：%{input}"
-        instructions: |-
-          你是 %{scope_name} 的智能客服和售前助理，帮助用户从商家的文章、产品资料和服务说明中快速找到有用信息。
-
-          行为要求：
-          - 用户询问产品、服务、文章内容或具体问题时，优先调用 search_articles 工具检索商家资料。
-          - 调用 search_articles 时，query 使用短关键词，例如产品名、成分名或服务名，不要直接传入完整长句。
-          - 用户只是问候或闲聊时，可以不调用工具。
-          - 所有商家相关结论必须基于检索到的文章资料，不要编造商家没有提供的信息。
-          - 检索结果不足时要明确说明，并建议用户继续咨询或补充问题。
-          - 推荐文章时使用文章标题，回答保持简洁、清晰、可执行。
     flash:
       not_authorized: "权限不足，请联系管理员"
       created_successfully: "创建成功"
