@@ -1,6 +1,6 @@
 GIT
   remote: git@gitlab.dd-life.com:common_utility/short_url.git
-  revision: b33ba2de0c1a467c7ceb407698dacd5f346bf1e6
+  revision: b3684db3754b124e8ee6f42069be307ddeda179a
   branch: master
   specs:
     short_url (0.2.0)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: cdeab79772915535006e64fc400916b8d623a58f
+  revision: 0377bce89f8c7b16dbaf27b863c51471d0ea698f
   branch: main
   specs:
     easy_style (0.3.0)
@@ -49,7 +49,15 @@ GIT
   specs:
     omni_pay (0.1.1)
       acts_as_list
+      kaminari
+      omni_account
+      pundit
       rails (>= 6.1)
+      ransack
+      rqrcode
+      short_url
+      wechat_vendor_platform_proxy
+      with_advisory_lock
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
@@ -74,7 +82,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 9238df25a60739e238d60184a400a1a32edad1da
+  revision: d633dbb3c49cd09403d686ada1d3937e4176b935
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -97,7 +105,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: fe381cb398b84c222c9c07bd817443e32b85725b
+  revision: 3ebc26b652daa63952a3f0fd1e501603f45ba59c
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -120,7 +128,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 751e5caf9e8e87ebdd0a8973233c04de7fb50221
+  revision: c2349864c6fa4841b5c6297ea4869417258770ad
   branch: main
   specs:
     user_auth (0.2.0)
@@ -138,6 +146,7 @@ GIT
       retriable
       rqrcode
       rucaptcha
+      short_url
       tzinfo
       with_advisory_lock
 
@@ -156,7 +165,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.pay/wechat_vendor_platform_proxy.git
-  revision: 1cc39d5601b91d60da7cd9bfed840e8a9dd29338
+  revision: 8d51d1bbc3f5f370caeab9ac1fc2b22f897cef1b
   branch: master
   specs:
     wechat_vendor_platform_proxy (0.1.1)

@@ -17,9 +17,9 @@
         <tr class="text-align-center">
           <%= tag.th article.id, scope: "row", class: "py-3" %>
 
-          <%= tag.td article.title %>
+          <%= tag.td article.title, class: "text-start text-wrap" %>
 
-          <%= tag.td class: "text-start" do %>
+          <%= tag.td class: "text-start text-wrap" do %>
             <%= simple_format(truncate(article.summary.to_s, length: 80), {}, wrapper_tag: "div") %>
           <% end %>
 

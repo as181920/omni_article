@@ -1,20 +1,20 @@
-<%= search_form_for q, url: url_for, class: "form" do |form| %>
-  <div class="d-inline-block me-3 mb-1">
+<%= search_form_for q, url: url_for, class: "form d-flex flex-wrap align-items-start gap-2 flex-1 min-w-0" do |form| %>
+  <div class="mb-1">
     <%= form.number_field :id_eq,
       placeholder: OmniArticle::Article.human_attribute_name(:id),
       class: "form-control w-6" %>
   </div>
 
-  <div class="d-inline-block me-3 mb-1">
+  <div class="mb-1">
     <%= form.text_field :title_cont,
       placeholder: OmniArticle::Article.human_attribute_name(:title),
-      class: "form-control" %>
+      class: "form-control input-medium" %>
   </div>
 
-  <div class="d-inline-block me-3 mb-1">
+  <div class="mb-1">
     <%= form.text_field :tags_name_cont,
       placeholder: OmniArticle::Article.human_attribute_name(:tag_list),
-      class: "form-control" %>
+      class: "form-control input-medium" %>
   </div>
 
   <%= form.button class: "btn btn-primary" do %>

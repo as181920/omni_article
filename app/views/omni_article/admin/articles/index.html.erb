@@ -3,12 +3,12 @@
     <div class="card-body">
       <%= tag.h3 OmniArticle::Article.model_name.human %>
 
-      <div class="d-flex mb-2">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-3">
         <%= render "search_form", q: @q %>
 
         <div class="ms-auto">
           <% if policy([:omni_article, :admin, OmniArticle::Article.new]).new? %>
-            <%= link_to new_admin_article_path, class: "btn btn-primary ms-3" do %>
+            <%= link_to new_admin_article_path, class: "btn btn-primary" do %>
               <%= tag.span inline_svg_tag("easy_style/icon_add.svg") %>
               <%= tag.span t("omni_article.add") %>
             <% end %>
