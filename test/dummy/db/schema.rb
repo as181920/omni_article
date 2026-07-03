@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_23_203111) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_30_030300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -108,6 +108,20 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_23_203111) do
     t.index ["commenter_type", "commenter_id"], name: "index_omni_comment_comments_on_commenter"
   end
 
+  create_table "omni_pay_notification_recipients", force: :cascade do |t|
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.bigint "user_id"
+    t.integer "state"
+    t.text "remark"
+    t.jsonb "settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_type", "owner_id", "user_id"], name: "index_omni_pay_notification_recipients_on_owner_and_user", unique: true
+    t.index ["owner_type", "owner_id"], name: "index_omni_pay_notification_recipients_on_owner"
+    t.index ["user_id"], name: "index_omni_pay_notification_recipients_on_user"
+  end
+
   create_table "omni_pay_payment_methods", force: :cascade do |t|
     t.string "owner_type"
     t.bigint "owner_id"
@@ -119,6 +133,66 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_23_203111) do
     t.datetime "updated_at", null: false
     t.string "label"
     t.index ["owner_type", "owner_id"], name: "index_omni_pay_payment_methods_on_owner"
+  end
+
+  create_table "omni_pay_payment_requests", force: :cascade do |t|
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.string "source_type"
+    t.bigint "source_id"
+    t.string "created_by_type"
+    t.bigint "created_by_id"
+    t.string "uid"
+    t.string "title"
+    t.decimal "amount", precision: 12, scale: 2
+    t.integer "state"
+    t.datetime "expires_at", precision: nil
+    t.datetime "paid_at", precision: nil
+    t.jsonb "display_data"
+    t.jsonb "settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_type", "created_by_id"], name: "index_omni_pay_payment_requests_on_created_by"
+    t.index ["owner_type", "owner_id"], name: "index_omni_pay_payment_requests_on_owner"
+    t.index ["source_type", "source_id"], name: "index_omni_pay_payment_requests_on_source"
+    t.index ["uid"], name: "index_omni_pay_payment_requests_on_uid", unique: true
+  end
+
+  create_table "omni_pay_payments", force: :cascade do |t|
+    t.bigint "payment_request_id"
+    t.bigint "payment_method_id"
+    t.string "payer_type"
+    t.bigint "payer_id"
+    t.string "uid"
+    t.integer "state"
+    t.decimal "amount", precision: 12, scale: 2
+    t.string "pay_scene"
+    t.datetime "paid_at", precision: nil
+    t.datetime "closed_at", precision: nil
+    t.jsonb "properties"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payer_type", "payer_id"], name: "index_omni_pay_payments_on_payer"
+    t.index ["payment_method_id"], name: "index_omni_pay_payments_on_payment_method_id"
+    t.index ["payment_request_id"], name: "index_omni_pay_payments_on_payment_request_id"
+    t.index ["uid"], name: "index_omni_pay_payments_on_uid", unique: true
+  end
+
+  create_table "omni_pay_refunds", force: :cascade do |t|
+    t.bigint "payment_id"
+    t.string "requested_by_type"
+    t.bigint "requested_by_id"
+    t.string "uid"
+    t.integer "state"
+    t.decimal "amount", precision: 12, scale: 2
+    t.text "description"
+    t.datetime "success_at", precision: nil
+    t.jsonb "properties"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_id"], name: "index_omni_pay_refunds_on_payment_id"
+    t.index ["requested_by_type", "requested_by_id"], name: "index_omni_pay_refunds_on_requested_by"
+    t.index ["uid"], name: "index_omni_pay_refunds_on_uid", unique: true
   end
 
   create_table "omni_region_divisions", force: :cascade do |t|
