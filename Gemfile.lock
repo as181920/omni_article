@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 0377bce89f8c7b16dbaf27b863c51471d0ea698f
+  revision: b7e072b263151507a851db29a7dd5db867879712
   branch: main
   specs:
     easy_style (0.3.0)
@@ -44,11 +44,12 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: b101e95a68df2564490395a0afaa5a44fd5d129a
+  revision: ece2b0dde2b09e787eb3333d1656aaa10ada3268
   branch: master
   specs:
     omni_pay (0.1.1)
       acts_as_list
+      easy_style
       kaminari
       omni_account
       pundit
@@ -56,6 +57,8 @@ GIT
       ransack
       rqrcode
       short_url
+      user_auth
+      wechat_open_platform_proxy
       wechat_vendor_platform_proxy
       with_advisory_lock
 
@@ -105,7 +108,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 3ebc26b652daa63952a3f0fd1e501603f45ba59c
+  revision: 635476b28a769847e1cba12788f71d4a0269792d
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -128,7 +131,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: c2349864c6fa4841b5c6297ea4869417258770ad
+  revision: 5a076322d983702a2dc9396b2648ab756414b9de
   branch: main
   specs:
     user_auth (0.2.0)
