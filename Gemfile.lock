@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 83285a309ddf1bc24071bc7f677261e43b2babb1
+  revision: 4f192b40151f5deef9cf617b894d4f92e0dd891e
   branch: main
   specs:
     easy_style (0.3.0)
@@ -44,7 +44,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 5f515bf5db200c1611bead0619539917834f53e9
+  revision: 12a7fed4eb70a256c0d0719f8122c364399e1028
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -85,7 +85,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: a66d4d32848bbab9b0832a103d12815d769e8dcf
+  revision: fbdd3cfa834101ba0e10359eba721ff0a573d66b
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -108,7 +108,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: c3f497861e249edabca78f4693d9098b6a591dd8
+  revision: 11467cbec483da440960e7cdd8a0867ce358d9fe
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -131,7 +131,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 7007c0b816887c68396c616ed50879c9794b4661
+  revision: 396b025d7bd81a0d8e59395229044f121448bd14
   branch: main
   specs:
     user_auth (0.2.0)

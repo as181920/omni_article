@@ -13,7 +13,7 @@ module OmniArticle
 
       assert_response :success
       assert_select "head title", content: @article.title
-      assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
+      assert_includes @response.body, @controller.view_context.render_rich_text(@article.content)
     end
 
     test "should render history nav when enabled" do

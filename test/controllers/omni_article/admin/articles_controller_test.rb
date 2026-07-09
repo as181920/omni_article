@@ -87,7 +87,7 @@ module OmniArticle
 
       assert_response :success
       assert_includes @response.body, @article.title
-      assert_includes @response.body, @controller.view_context.rich_text_content(@article.content)
+      assert_includes @response.body, @controller.view_context.render_rich_text(@article.content)
     end
 
     test "should show article tag list" do
