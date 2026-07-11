@@ -172,7 +172,7 @@
           <%= tag.span t("omni_article.submit") %>
         <% end %>
 
-        <%= link_to t("omni_article.cancel"), :back, class: "btn btn-secondary me-3" %>
+        <%= link_to t("omni_article.cancel"), [:admin, :articles], data: { controller: "back-link" }, class: "btn btn-secondary me-3" %>
       </div>
     <% end %>
 

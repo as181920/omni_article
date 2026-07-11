@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 4f192b40151f5deef9cf617b894d4f92e0dd891e
+  revision: 340e3b50b9ae0f4f4494e3b95de5e02f40c38634
   branch: main
   specs:
     easy_style (0.3.0)
@@ -85,7 +85,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: fbdd3cfa834101ba0e10359eba721ff0a573d66b
+  revision: d4efdb53f6f6c72b9cf192a1d3aae89607b30d2a
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -155,7 +155,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: 021d9c64d48812db33c335eb28d645d58ac8444d
+  revision: fe0fb39bf04c1ee5a62c72f6ed9b74e0c1afe8b9
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
