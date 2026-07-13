@@ -15,8 +15,15 @@ module OmniArticle
       get openapi_spec_path
 
       assert_response :success
-      assert_equal "./openapi/paths/user_articles_show.json", @response.parsed_body.dig("paths", "/user/articles/{uid}", "$ref")
-      assert_equal "./openapi/paths/shortcut_article_show.json", @response.parsed_body.dig("paths", "/{uid}", "$ref")
+      assert_equal({
+        "openapi" => "3.1.2",
+        "article_ref" => "./openapi/paths/user_articles_show.json",
+        "shortcut_ref" => "./openapi/paths/shortcut_article_show.json"
+      }, {
+        "openapi" => @response.parsed_body["openapi"],
+        "article_ref" => @response.parsed_body.dig("paths", "/user/articles/{uid}", "$ref"),
+        "shortcut_ref" => @response.parsed_body.dig("paths", "/{uid}", "$ref")
+      })
     end
 
     test "should get openapi path file" do

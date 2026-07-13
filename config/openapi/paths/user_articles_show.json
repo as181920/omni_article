@@ -32,6 +32,7 @@
                   "uid": "ART8xP1mK",
                   "title": "AI 展厅本周活动预告",
                   "summary": "本周将上线数字人接待、智能讲解和线索采集联动。",
+                  "list_display_style": "small",
                   "content": "<p>欢迎来到本周 AI 展厅专题活动。</p>",
                   "created_at": "2026-02-28T10:20:00+08:00",
                   "updated_at": "2026-02-28T11:40:00+08:00",

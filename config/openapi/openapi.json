@@ -1,5 +1,6 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://spec.openapis.org/oas/3.1/dialect/base",
   "info": {
     "title": "OmniArticle API",
     "version": "2026-02-28",
@@ -11,6 +12,7 @@
       "description": "Mounted path in easy_biz_host_app"
     }
   ],
+  "security": [],
   "paths": {
     "/{uid}": {
       "$ref": "./openapi/paths/shortcut_article_show.json"

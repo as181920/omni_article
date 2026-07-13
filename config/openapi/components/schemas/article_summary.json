@@ -25,13 +25,18 @@
       "example": "AI 展厅本周活动预告"
     },
     "summary": {
-      "type": "string",
-      "nullable": true,
+      "type": [
+        "string",
+        "null"
+      ],
       "example": "本周将上线数字人接待、智能讲解和线索采集联动。"
     },
     "list_display_style": {
       "type": "string",
-      "enum": ["small", "large"],
+      "enum": [
+        "small",
+        "large"
+      ],
       "example": "small"
     },
     "updated_at": {
@@ -43,8 +48,10 @@
       "example": "/omni_article/y8s1A2Bc"
     },
     "icon_url": {
-      "type": "string",
-      "nullable": true,
+      "type": [
+        "string",
+        "null"
+      ],
       "example": "https://cdn.example.com/uploads/article/icon.png"
     },
     "tag_list": {

@@ -9,18 +9,19 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 340e3b50b9ae0f4f4494e3b95de5e02f40c38634
+  revision: 80f5c9951a6c01a6eea418ff1104c2afadd64980
   branch: main
   specs:
     easy_style (0.3.0)
       breadcrumbs_on_rails
       browser
       chartkick
-      image_processing
+      image_processing (~> 2.0)
       importmap-rails
       kaminari
       rails (>= 7.1)
       requestjs-rails
+      ruby-vips (~> 2.2)
       stimulus-rails
       turbo-rails
 
@@ -108,7 +109,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 11467cbec483da440960e7cdd8a0867ce358d9fe
+  revision: 10366b469efe7519f8c11a5426063cd34f2718be
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -131,7 +132,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 396b025d7bd81a0d8e59395229044f121448bd14
+  revision: cce075696d324afb80f01f63f5c85835fde0c08e
   branch: main
   specs:
     user_auth (0.2.0)
@@ -370,9 +371,7 @@ GEM
     hashdiff (1.2.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    image_processing (1.14.0)
-      mini_magick (>= 4.9.5, < 6)
-      ruby-vips (>= 2.0.17, < 3)
+    image_processing (2.0.2)
     importmap-rails (2.2.2)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -419,8 +418,6 @@ GEM
     marcel (1.0.4)
     matrix (0.4.3)
     method_source (1.1.0)
-    mini_magick (5.3.0)
-      logger
     mini_mime (1.1.5)
     minitest (5.25.5)
     minitest-reporters (1.7.1)
