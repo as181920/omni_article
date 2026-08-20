@@ -10,7 +10,7 @@ module OmniArticle
 
       def set_article_base_breadcrumbs
         add_breadcrumb Article.model_name.human, admin_articles_path
-        add_breadcrumb @article.id, admin_article_path(@article)
+        add_breadcrumb @article.title.presence || @article.id, admin_article_path(@article)
       end
   end
 end

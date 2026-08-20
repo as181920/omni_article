@@ -90,6 +90,12 @@ module OmniArticle
       assert_includes @response.body, @controller.view_context.render_rich_text(@article.content)
     end
 
+    test "should use article title in breadcrumbs" do
+      get admin_article_path(@article)
+
+      assert_select "nav[aria-label='breadcrumb']", text: /#{Regexp.escape(@article.title)}/
+    end
+
     test "should show article tag list" do
       @article.update tag_list: "abcdef,xxxyyy"
 

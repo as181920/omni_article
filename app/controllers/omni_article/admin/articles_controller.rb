@@ -16,7 +16,7 @@ module OmniArticle
 
     def show
       authorize [:omni_article, :admin, @article]
-      add_breadcrumb @article.id, [:admin, @article]
+      add_breadcrumb @article.title.presence || @article.id, [:admin, @article]
     end
 
     def new

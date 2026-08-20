@@ -1,15 +1,15 @@
 GIT
   remote: git@gitlab.dd-life.com:common_utility/short_url.git
-  revision: b3684db3754b124e8ee6f42069be307ddeda179a
+  revision: 54fa62660e619dfc4ee5e5476799598231b80e9d
   branch: master
   specs:
     short_url (0.2.0)
       addressable
-      rails (>= 7.1)
+      rails (>= 8.1)
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 80f5c9951a6c01a6eea418ff1104c2afadd64980
+  revision: 267fab3b03a720eb17a84a78d59dd7785e7da71d
   branch: main
   specs:
     easy_style (0.3.0)
@@ -18,8 +18,9 @@ GIT
       chartkick
       image_processing (~> 2.0)
       importmap-rails
+      inline_svg
       kaminari
-      rails (>= 7.1)
+      rails (>= 8.1)
       requestjs-rails
       ruby-vips (~> 2.2)
       stimulus-rails
@@ -45,7 +46,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 12a7fed4eb70a256c0d0719f8122c364399e1028
+  revision: 838cd2de34c06e5d7205931836217f02c1727c0d
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -54,7 +55,7 @@ GIT
       kaminari
       omni_account
       pundit
-      rails (>= 6.1)
+      rails (>= 8.0)
       ransack
       rqrcode
       short_url
@@ -65,7 +66,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_region.git
-  revision: 69009d54c9e65e983267d811a134ab5f374de0b6
+  revision: 4ffcc9280867b8a29c59eea0d508a777694fe71b
   branch: master
   specs:
     omni_region (0.2.0)
@@ -86,7 +87,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: d4efdb53f6f6c72b9cf192a1d3aae89607b30d2a
+  revision: 71c5db1b629b151dbdbe7007b0f6fdb25b1f8173
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -99,9 +100,10 @@ GIT
       browser
       countries
       country_to_locales_mapping
+      easy_style
       geocoder
       pundit
-      rails (>= 7.0)
+      rails (>= 8.1)
       retriable
       rotp
       rucaptcha
@@ -109,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 10366b469efe7519f8c11a5426063cd34f2718be
+  revision: 357593e4320339dc1175a2c4167ce599138333c3
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -121,18 +123,23 @@ GIT
       browser
       countries
       country_to_locales_mapping
+      easy_style
       faraday
       geocoder
       inline_svg
+      jbuilder
+      kaminari
+      omni_role
       pundit
-      rails (>= 7.0)
+      rails (>= 8.1)
+      ransack
       retriable
       rucaptcha
       tzinfo
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: cce075696d324afb80f01f63f5c85835fde0c08e
+  revision: f07ba65a9bde0e922759e363eb7dc2e3894f3c9a
   branch: main
   specs:
     user_auth (0.2.0)
@@ -146,7 +153,7 @@ GIT
       geocoder
       inline_svg
       pundit
-      rails (>= 7.0)
+      rails (>= 8.1)
       retriable
       rqrcode
       rucaptcha
@@ -156,7 +163,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: fe0fb39bf04c1ee5a62c72f6ed9b74e0c1afe8b9
+  revision: d2a03d5b82db44dc7713cf3d3eed102d3efb7674
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
@@ -200,29 +207,31 @@ GEM
   remote: https://rubygems.org/
   specs:
     accept_language (2.0.8)
-    actioncable (8.0.2)
-      actionpack (= 8.0.2)
-      activesupport (= 8.0.2)
+    action_text-trix (2.1.19)
+      railties
+    actioncable (8.1.3.1)
+      actionpack (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
       zeitwerk (~> 2.6)
-    actionmailbox (8.0.2)
-      actionpack (= 8.0.2)
-      activejob (= 8.0.2)
-      activerecord (= 8.0.2)
-      activestorage (= 8.0.2)
-      activesupport (= 8.0.2)
+    actionmailbox (8.1.3.1)
+      actionpack (= 8.1.3.1)
+      activejob (= 8.1.3.1)
+      activerecord (= 8.1.3.1)
+      activestorage (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       mail (>= 2.8.0)
-    actionmailer (8.0.2)
-      actionpack (= 8.0.2)
-      actionview (= 8.0.2)
-      activejob (= 8.0.2)
-      activesupport (= 8.0.2)
+    actionmailer (8.1.3.1)
+      actionpack (= 8.1.3.1)
+      actionview (= 8.1.3.1)
+      activejob (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       mail (>= 2.8.0)
       rails-dom-testing (~> 2.2)
-    actionpack (8.0.2)
-      actionview (= 8.0.2)
-      activesupport (= 8.0.2)
+    actionpack (8.1.3.1)
+      actionview (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       nokogiri (>= 1.8.5)
       rack (>= 2.2.4)
       rack-session (>= 1.0.1)
@@ -230,49 +239,50 @@ GEM
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
       useragent (~> 0.16)
-    actiontext (8.0.2)
-      actionpack (= 8.0.2)
-      activerecord (= 8.0.2)
-      activestorage (= 8.0.2)
-      activesupport (= 8.0.2)
+    actiontext (8.1.3.1)
+      action_text-trix (~> 2.1.15)
+      actionpack (= 8.1.3.1)
+      activerecord (= 8.1.3.1)
+      activestorage (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       globalid (>= 0.6.0)
       nokogiri (>= 1.8.5)
-    actionview (8.0.2)
-      activesupport (= 8.0.2)
+    actionview (8.1.3.1)
+      activesupport (= 8.1.3.1)
       builder (~> 3.1)
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    activejob (8.0.2)
-      activesupport (= 8.0.2)
+    activejob (8.1.3.1)
+      activesupport (= 8.1.3.1)
       globalid (>= 0.3.6)
-    activemodel (8.0.2)
-      activesupport (= 8.0.2)
-    activerecord (8.0.2)
-      activemodel (= 8.0.2)
-      activesupport (= 8.0.2)
+    activemodel (8.1.3.1)
+      activesupport (= 8.1.3.1)
+    activerecord (8.1.3.1)
+      activemodel (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       timeout (>= 0.4.0)
-    activestorage (8.0.2)
-      actionpack (= 8.0.2)
-      activejob (= 8.0.2)
-      activerecord (= 8.0.2)
-      activesupport (= 8.0.2)
+    activestorage (8.1.3.1)
+      actionpack (= 8.1.3.1)
+      activejob (= 8.1.3.1)
+      activerecord (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       marcel (~> 1.0)
-    activesupport (8.0.2)
+    activesupport (8.1.3.1)
       base64
-      benchmark (>= 0.3)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.3.1)
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
+      json
       logger (>= 1.4.2)
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    acts-as-taggable-on (12.0.0)
-      activerecord (>= 7.1, < 8.1)
+    acts-as-taggable-on (13.0.0)
+      activerecord (>= 7.1, < 8.2)
       zeitwerk (>= 2.4, < 3.0)
     acts_as_list (1.2.4)
       activerecord (>= 6.1)
@@ -281,12 +291,11 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
     ast (2.4.3)
-    awesome_nested_set (3.8.0)
-      activerecord (>= 4.0.0, < 8.1)
+    awesome_nested_set (3.9.0)
+      activerecord (>= 4.0.0, < 8.2)
     base58 (0.2.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
-    benchmark (0.4.1)
     better_html (2.1.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -481,20 +490,20 @@ GEM
       rack (>= 1.3)
     rackup (2.2.1)
       rack (>= 3)
-    rails (8.0.2)
-      actioncable (= 8.0.2)
-      actionmailbox (= 8.0.2)
-      actionmailer (= 8.0.2)
-      actionpack (= 8.0.2)
-      actiontext (= 8.0.2)
-      actionview (= 8.0.2)
-      activejob (= 8.0.2)
-      activemodel (= 8.0.2)
-      activerecord (= 8.0.2)
-      activestorage (= 8.0.2)
-      activesupport (= 8.0.2)
+    rails (8.1.3.1)
+      actioncable (= 8.1.3.1)
+      actionmailbox (= 8.1.3.1)
+      actionmailer (= 8.1.3.1)
+      actionpack (= 8.1.3.1)
+      actiontext (= 8.1.3.1)
+      actionview (= 8.1.3.1)
+      activejob (= 8.1.3.1)
+      activemodel (= 8.1.3.1)
+      activerecord (= 8.1.3.1)
+      activestorage (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       bundler (>= 1.15.0)
-      railties (= 8.0.2)
+      railties (= 8.1.3.1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -502,13 +511,14 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
-    railties (8.0.2)
-      actionpack (= 8.0.2)
-      activesupport (= 8.0.2)
+    railties (8.1.3.1)
+      actionpack (= 8.1.3.1)
+      activesupport (= 8.1.3.1)
       irb (~> 1.13)
       rackup (>= 1.0.0)
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
+      tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.0)
@@ -614,6 +624,7 @@ GEM
     stringio (3.1.7)
     thor (1.4.0)
     timeout (0.4.3)
+    tsort (0.2.0)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
