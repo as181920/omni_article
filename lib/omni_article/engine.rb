@@ -27,6 +27,14 @@ module OmniArticle
       ]
     end
 
+    initializer "omni_article.easy_agent" do |app|
+      ActiveSupport.on_load(:easy_agent) do |easy_agent|
+        app.reloader.to_prepare do
+          OmniArticle::EasyAgentIntegration.install(easy_agent)
+        end
+      end
+    end
+
     config.to_prepare do
       Dir.glob(OmniArticle::Engine.root.join("app/extensions/**/*_extension*.rb")).each do |c|
         require_dependency c

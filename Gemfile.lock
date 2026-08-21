@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 267fab3b03a720eb17a84a78d59dd7785e7da71d
+  revision: 9509a4cca07484ef2d08dea36109330159ebbaf7
   branch: main
   specs:
     easy_style (0.3.0)
@@ -87,7 +87,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 71c5db1b629b151dbdbe7007b0f6fdb25b1f8173
+  revision: 4e9ecb0e4b9f9e52c6c3049dc90917efe257fb7f
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -111,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 357593e4320339dc1175a2c4167ce599138333c3
+  revision: 27a011fb76e7cee9d64f55a5a589b98f00a51946
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -139,7 +139,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: f07ba65a9bde0e922759e363eb7dc2e3894f3c9a
+  revision: daa5ba4b1a0174ca493ee4d31b7aaf7eba5d28f6
   branch: main
   specs:
     user_auth (0.2.0)
@@ -172,7 +172,7 @@ GIT
       faraday-multipart
       jbuilder
       kaminari
-      rails (>= 6.1)
+      rails (>= 8.1)
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.pay/wechat_vendor_platform_proxy.git
@@ -199,7 +199,7 @@ PATH
       jbuilder
       kaminari
       pundit
-      rails (>= 7.1)
+      rails (>= 8.1)
       ransack
       ruby_llm
 
