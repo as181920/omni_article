@@ -111,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 27a011fb76e7cee9d64f55a5a589b98f00a51946
+  revision: 81af38e2f390a71e7db4c1705f5b4c0d66a7b4d6
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -163,7 +163,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: d2a03d5b82db44dc7713cf3d3eed102d3efb7674
+  revision: aa17269610705a7985ac8be3220cc3c9272cc92c
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)

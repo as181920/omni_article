@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_14_203000) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_21_100000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -476,6 +476,24 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_14_203000) do
     t.index ["transfer_in_account_id"], name: "index_tnt_fund_transfers_on_transfer_in_account_id"
     t.index ["transfer_out_account_id"], name: "index_tnt_fund_transfers_on_transfer_out_account_id"
     t.index ["uid"], name: "index_tnt_fund_transfers_on_uid", unique: true
+  end
+
+  create_table "tnt_impersonations", force: :cascade do |t|
+    t.bigint "actor_id"
+    t.string "actor_type"
+    t.datetime "created_at", null: false
+    t.datetime "ended_at"
+    t.string "ended_ip"
+    t.datetime "expires_at"
+    t.integer "lock_version", default: 0
+    t.datetime "started_at"
+    t.string "started_ip"
+    t.bigint "target_user_id"
+    t.bigint "tenant_id"
+    t.datetime "updated_at", null: false
+    t.text "user_agent"
+    t.index ["actor_type", "actor_id", "ended_at"], name: "idx_on_actor_type_actor_id_ended_at_da7d110a23"
+    t.index ["target_user_id", "ended_at"], name: "index_tnt_impersonations_on_target_user_id_and_ended_at"
   end
 
   create_table "tnt_phones", force: :cascade do |t|
