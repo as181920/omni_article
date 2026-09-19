@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 9509a4cca07484ef2d08dea36109330159ebbaf7
+  revision: 9fc33a2df3af268641bd0b34406a9f4d67c5dda9
   branch: main
   specs:
     easy_style (0.3.0)
@@ -28,12 +28,12 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_account.git
-  revision: 6038c83254eca8d31a5aa6ef218dad5895526d9b
+  revision: 6f318a4c703bb6b4bfd612377baccc6f9c259abc
   branch: master
   specs:
     omni_account (0.2.1)
       kaminari
-      rails (>= 6.1)
+      rails (>= 8.1)
       ransack
 
 GIT
@@ -87,7 +87,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 4e9ecb0e4b9f9e52c6c3049dc90917efe257fb7f
+  revision: 591ff9e02456903664985dda2ecb531588cac040
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -111,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 81af38e2f390a71e7db4c1705f5b4c0d66a7b4d6
+  revision: 8092d9a6303b1ffd68b6adc385953648cecb0281
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -136,10 +136,11 @@ GIT
       retriable
       rucaptcha
       tzinfo
+      user_auth
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: daa5ba4b1a0174ca493ee4d31b7aaf7eba5d28f6
+  revision: eac5c5e230e78a2127c12502d2c3845bc2b1acb3
   branch: main
   specs:
     user_auth (0.2.0)
@@ -201,7 +202,7 @@ PATH
       pundit
       rails (>= 8.1)
       ransack
-      ruby_llm
+      ruby_llm (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -595,21 +596,22 @@ GEM
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
-    ruby_llm (1.14.1)
+    ruby_llm (2.0.0)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
       faraday-multipart (>= 1)
       faraday-net_http (>= 1)
       faraday-retry (>= 1)
-      marcel (~> 1)
-      ruby_llm-schema (~> 0)
+      json (< 3)
+      marcel (>= 1.0, < 3)
+      schematist (~> 1.1)
       zeitwerk (~> 2)
-    ruby_llm-schema (0.3.0)
     rubyzip (2.4.1)
     rucaptcha (3.3.0-x86_64-linux)
       railties (>= 3.2)
       rb_sys (>= 0.9.105)
+    schematist (1.1.0)
     securerandom (0.4.1)
     selenium-webdriver (4.34.0)
       base64 (~> 0.2)

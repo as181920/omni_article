@@ -5,8 +5,8 @@ module OmniArticle
 
     description "Search merchant articles by short product, service, or article keywords and return concise article references."
 
-    param :query, desc: "Short search keywords. Prefer product/service terms instead of the full user sentence."
-    param :limit, type: "integer", desc: "Maximum article count to return", required: false
+    parameter :query, description: "Short search keywords. Prefer product/service terms instead of the full user sentence."
+    parameter :limit, type: "integer", description: "Maximum article count to return", required: false
 
     def initialize(context:)
       @context = context
