@@ -7,19 +7,19 @@
           <%= tag.h3 t("omni_article.url") %>
 
           <% url_by_shorten(article_url(@article.uid)).then do |url| %>
-            <div class="row">
-              <div class="col-6">
+            <div class="row gx-3">
+              <div class="col-6 sm:col-12">
                 <%= tag.div class: "callout border-left-info" do %>
                   <%= tag.div t("omni_article.qr_code"), class: "card-title" %>
                   <%= image_tag RQRCode::QRCode.new(url, size: 4, level: :l).as_png(size: 300, border_modules: 0).to_data_url, alt: "", size: "160x160" %>
                 <% end %>
               </div>
 
-              <div class="col-6">
+              <div class="col-6 sm:col-12">
                 <%= tag.div class: "callout border-left-info" do %>
                   <%= tag.div t("omni_article.url"), class: "card-title" %>
                   <%= tag.div data: { controller: "clipboard" }, class: "d-inline-flex" do %>
-                    <%= tag.span url, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1" %>
+                    <%= tag.span url, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1 text-wrap" %>
                     <%= inline_svg_tag "easy_style/icon_copy.svg",
                       data: { clipboard_target: "copy", action: "click->clipboard#copy" },
                       class: "ms-2 text-secondary" %>
@@ -32,7 +32,7 @@
                 <%= tag.div class: "callout border-left-info" do %>
                   <%= tag.div OmniArticle::Article.human_attribute_name(:uid), class: "card-title" %>
                   <%= tag.div data: { controller: "clipboard" }, class: "d-inline-flex" do %>
-                    <%= tag.span @article.uid, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1" %>
+                    <%= tag.span @article.uid, data: { clipboard_target: "source" }, class: "fw-500 bg-light px-1 text-wrap" %>
                     <%= inline_svg_tag "easy_style/icon_copy.svg",
                       data: { clipboard_target: "copy", action: "click->clipboard#copy" },
                       class: "ms-2 text-secondary" %>

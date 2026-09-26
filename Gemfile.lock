@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 9fc33a2df3af268641bd0b34406a9f4d67c5dda9
+  revision: d8957762d4f5b34f17692494e381c874324b4acd
   branch: main
   specs:
     easy_style (0.3.0)
@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 838cd2de34c06e5d7205931836217f02c1727c0d
+  revision: 7b2c42bde435cd80d6a84c2a01b5c5b2c829f5fb
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -87,7 +87,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 591ff9e02456903664985dda2ecb531588cac040
+  revision: 67f1607304e03ca22b5d7f660d9ea81c724dcc9b
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -111,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 8092d9a6303b1ffd68b6adc385953648cecb0281
+  revision: 1944484af9161d99482555b88204a245d6229a89
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: eac5c5e230e78a2127c12502d2c3845bc2b1acb3
+  revision: 7aa2f911c469ed3708eb2380d3969ab746e21232
   branch: main
   specs:
     user_auth (0.2.0)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:weixin.open/wechat_open_platform_proxy.git
-  revision: aa17269610705a7985ac8be3220cc3c9272cc92c
+  revision: d37fd27a1a96883f24a08aabce33bb2be96d3f44
   branch: master
   specs:
     wechat_open_platform_proxy (0.1.1)
