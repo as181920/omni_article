@@ -16,7 +16,6 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
   ActiveSupport::TestCase.parallelize workers: :number_of_processors
 end
 
-require "minitest/mock"
 require "mocha/minitest"
 require "webmock/minitest"
 require "debug"
