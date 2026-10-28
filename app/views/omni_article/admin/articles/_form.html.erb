@@ -11,7 +11,7 @@
       <% if article.new_record? %>
         <%= tag.span t("omni_article.new"), class: "badge bg-gray text-secondary ms-2" %>
       <% else %>
-        <%= tag.span article.id, class: "badge badge-pill bg-info ms-2" %>
+        <%= tag.span "##{article.id}", class: "badge badge-pill bg-info ms-2" %>
       <% end %>
     <% end %>
 

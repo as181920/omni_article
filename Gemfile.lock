@@ -1,6 +1,6 @@
 GIT
   remote: git@gitlab.dd-life.com:common_utility/short_url.git
-  revision: 54fa62660e619dfc4ee5e5476799598231b80e9d
+  revision: 65179904488bde09be8e583160a12e775c5bf6e7
   branch: master
   specs:
     short_url (0.2.0)
@@ -87,7 +87,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: a55fe3454ef6f67ea7bc7223a6d294187748a32f
+  revision: 0fe067efc088b4af6e7a574c808999116a0d8e35
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -111,7 +111,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 09b5eeef0d6dc3081aee8243cdd002b127bfa4de
+  revision: f74121708d2331dbb9fb165e7b6d4afdb5b2e28c
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -140,7 +140,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 9fdb38b3a9dd2c4c608d0cbae1ce46bf98b368cc
+  revision: 5259143719c197f6cf60441bb5ee6cc2b5b87eb7
   branch: main
   specs:
     user_auth (0.2.0)
