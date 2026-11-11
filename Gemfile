@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
+gem "rails", ">= 8.1.4.1"
+
 # rubocop:disable Bundler/OrderedGems
 gem "debug"
 gem "rubocop"
@@ -47,3 +49,5 @@ group :test do
   gem "webmock"
 end
 # rubocop:enable Bundler/OrderedGems
+
+gem "aliyun_proxy", git: "git@gitlab.dd-life.com:shared/aliyun_proxy.git", branch: "main"

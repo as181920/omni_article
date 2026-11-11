@@ -3,6 +3,7 @@ module OmniArticle
     before_action :add_article_index_breadcrumbs
     before_action :set_article, only: %i[show edit update destroy]
     before_action :set_tag_quick_inputs, only: %i[new edit]
+    before_action :add_article_show_breadcrumb, only: %i[show edit]
 
     def index
       authorize [:omni_article, :admin, Article]
@@ -16,7 +17,6 @@ module OmniArticle
 
     def show
       authorize [:omni_article, :admin, @article]
-      add_breadcrumb @article.title.presence || @article.id, [:admin, @article]
     end
 
     def new
@@ -62,6 +62,10 @@ module OmniArticle
     end
 
     private
+
+      def add_article_show_breadcrumb
+        add_breadcrumb @article.title.presence || @article.id, [:admin, @article]
+      end
 
       def add_article_index_breadcrumbs
         add_breadcrumb Article.model_name.human, [:admin, Article]
