@@ -10,11 +10,6 @@ before_script:
   - ruby -v
   - bundle install -j $(nproc)
 
-  - git lfs install
-  - git -C "$(bundle show ip_info)" read-tree HEAD
-  - git -C "$(bundle show ip_info)" lfs pull --include=data/GeoLite2-City.mmdb
-  - bundle exec ruby -rip_info -e 'puts "GeoIP database ready"'
-
 stages:
   - verify
 
