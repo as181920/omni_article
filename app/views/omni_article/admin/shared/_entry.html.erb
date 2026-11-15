@@ -1,0 +1,37 @@
+<% uid = local_assigns[:uid] %>
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { controller: "modal", modal_target: "overlay", action: "click->modal#dismiss" }, class: "modal-overlay" do %>
+    <%= tag.div data: { modal_target: "modal" }, class: "modal" do %>
+      <div class="card">
+        <div class="card-body">
+          <%= tag.h3 title %>
+          <div class="row gx-3">
+            <div class="col-6 sm:col-12">
+              <div class="callout border-left-info">
+                <%= tag.div t("omni_article.qr_code"), class: "card-title" %>
+                <%= image_tag RQRCode::QRCode.new(url, size: 4, level: :l).as_png(size: 300, border_modules: 0).to_data_url,
+                  alt: t("omni_article.qr_code"), size: "160x160" %>
+              </div>
+            </div>
+            <div class="col-6 sm:col-12">
+              <div class="callout border-left-info">
+                <%= tag.div t("omni_article.url"), class: "card-title" %>
+                <%= copyable_text url %>
+              </div>
+              <% if uid.present? %>
+                <div class="callout border-left-info">
+                  <%= tag.div OmniArticle::Article.human_attribute_name(:uid), class: "card-title" %>
+                  <%= copyable_text uid %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="w-100 text-align-end">
+            <%= button_tag t("omni_article.close"), data: { action: "modal#close" },
+              type: "button", class: "btn btn-secondary me-3" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

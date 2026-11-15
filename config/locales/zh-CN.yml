@@ -1,6 +1,7 @@
 ---
 zh-CN:
   omni_article:
+    article_list_entry: "文章列表入口"
     engine: "文章平台"
     welcome: "欢迎使用通用文章平台"
     loading: "Loading..."

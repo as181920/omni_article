@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 16686c6561aa8dd7afce2f470f4f458161b8604b
+  revision: 80dc456a57a3121401f2db5dd6dcb53781f968e8
   branch: main
   specs:
     easy_style (0.3.0)
@@ -20,10 +20,12 @@ GIT
       importmap-rails
       inline_svg
       kaminari
+      propshaft
       rails (>= 8.1.4)
       requestjs-rails
       ruby-vips (~> 2.2)
       stimulus-rails
+      tinymce-rails (~> 8.10, >= 8.10.2)
       turbo-rails
 
 GIT
@@ -222,6 +224,7 @@ PATH
       base58
       breadcrumbs_on_rails
       browser
+      easy_style
       jbuilder
       kaminari
       pundit
@@ -659,6 +662,8 @@ GEM
       railties (>= 6.0.0)
     thor (1.5.0)
     timeout (0.6.1)
+    tinymce-rails (8.10.2)
+      railties (>= 3.1.1)
     tsort (0.2.0)
     turbo-rails (2.0.23)
       actionpack (>= 7.1.0)

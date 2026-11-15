@@ -1,6 +1,7 @@
 ---
 en:
   omni_article:
+    article_list_entry: "Article list entry"
     engine: "Article Platform"
     welcome: "Welcome"
     loading: "Loading..."

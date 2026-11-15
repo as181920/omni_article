@@ -5,6 +5,7 @@
 
 - `GET /omni_article/api-docs`
 - `GET /omni_article/api-docs/openapi.json`
+- 后台文章列表标题旁的二维码提供当前商家／组织的公开文章列表入口，可扫码或复制链接；单篇文章详情的二维码仍指向该篇文章。
 - Article UI-specific rendering preferences should live in `article.custom_settings`, not dedicated columns.
 - Current user-side article payload includes `list_display_style` derived from `OmniArticle::Article::UiSettings`.
 

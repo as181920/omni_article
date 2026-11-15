@@ -26,19 +26,19 @@ module OmniArticle
     test "should render article entry url clipboard block" do
       get admin_article_entry_path(@article)
 
-      assert_select "div[data-controller='clipboard'] span[data-clipboard-target='source'][class*='fw-500']", count: 2
+      assert_select "span[data-controller='clipboard'] span[data-clipboard-target='source']", count: 2
     end
 
     test "should render article entry uid clipboard source" do
       get admin_article_entry_path(@article)
 
-      assert_select "div[data-controller='clipboard'] span[data-clipboard-target='source']", text: @article.uid, count: 1
+      assert_select "span[data-controller='clipboard'] span[data-clipboard-target='source']", text: @article.uid, count: 1
     end
 
     test "should render article entry clipboard copy buttons" do
       get admin_article_entry_path(@article)
 
-      assert_select "div[data-controller='clipboard'] svg[data-clipboard-target='copy'][data-action='click->clipboard#copy']", count: 2
+      assert_select "span[data-controller='clipboard'] svg[data-clipboard-target='copy'][data-action='click->clipboard#copy']", count: 2
     end
   end
 end
