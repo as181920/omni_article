@@ -7,6 +7,7 @@ module OmniArticle
     AuthenticateFailError = Class.new(StandardError)
 
     included do
+      skip_forgery_protection if: :credential_authentication_request?
       before_action :authenticate
       after_action :verify_authorized, except: :index
       after_action :verify_policy_scoped, only: :index
@@ -21,6 +22,12 @@ module OmniArticle
     end
 
     private
+
+      # This mixed-role guard authenticates explicit tenant/organization credentials
+      # through its existing service; Basic continues to use the browser session.
+      def credential_authentication_request?
+        UserAuthService::SUPPORTED_AUTH_TYPES.include?(auth_params&.dig(:type))
+      end
 
       def authenticate
         raise AuthenticateFailError, "authenticate failed." if current_user.blank?

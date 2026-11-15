@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
+gem "brakeman", "~> 8.0"
+gem "bundle-audit"
+
 gem "rails", ">= 8.1.4.1"
 
 # rubocop:disable Bundler/OrderedGems

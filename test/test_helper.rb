@@ -21,6 +21,7 @@ require "webmock/minitest"
 require "debug"
 
 require "minitest/reporters"
+Minitest.load :minitest_reporter
 Minitest::Reporters.use!
 
 require_relative "support/easy_agent_mock"

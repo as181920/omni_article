@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/aliyun_proxy.git
-  revision: 2e0771de234918d618d37bf49470d10f0735f418
+  revision: bae30f0934aabf775b8916785289ae58a13617d0
   branch: main
   specs:
     aliyun_proxy (0.1.0)
@@ -103,7 +103,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/organization_auth.git
-  revision: 8f0aaef949149181ccd07fa5bb98932a66ffc7ff
+  revision: e92fc494019783bccac27c8519537d4f2aab8be7
   branch: main
   specs:
     organization_auth (0.2.0)
@@ -125,11 +125,12 @@ GIT
       rotp
       rucaptcha
       tzinfo
+      user_auth
       with_advisory_lock
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 543e6d24846de82e41c8951ee305027cc16d45f8
+  revision: 00de0ae7af41ecaffe9379008486d58431105203
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -160,7 +161,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/user_auth.git
-  revision: 887801d9d78e61880c05e91c8d9f39f4c3378273
+  revision: 9cffff7fb1ef78f467aeb69f2782c9709bc9d079
   branch: main
   specs:
     user_auth (0.2.0)
@@ -231,7 +232,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    accept_language (2.0.8)
+    accept_language (2.2.0)
     action_text-trix (2.1.19)
       railties
     actioncable (8.1.4.1)
@@ -309,33 +310,33 @@ GEM
     acts-as-taggable-on (13.0.0)
       activerecord (>= 7.1, < 8.2)
       zeitwerk (>= 2.4, < 3.0)
-    acts_as_list (1.2.4)
+    acts_as_list (1.2.6)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
-    addressable (2.8.7)
-      public_suffix (>= 2.0.2, < 7.0)
+    addressable (2.9.2)
+      public_suffix (>= 2.0.2, < 8.0)
     aliyunsdkcore (0.0.17)
       activesupport (>= 3.0.0)
       faraday (>= 0.15.4)
-    ansi (1.5.0)
+    ansi (1.6.0)
     ast (2.4.3)
     awesome_nested_set (3.9.0)
       activerecord (>= 4.0.0, < 8.2)
     base58 (0.2.3)
     base64 (0.3.0)
-    bcrypt (3.1.20)
-    better_html (2.1.1)
-      actionview (>= 6.0)
-      activesupport (>= 6.0)
-      ast (~> 2.0)
-      erubi (~> 1.4)
-      parser (>= 2.4)
-      smart_properties
+    bcrypt (3.1.22)
     bigdecimal (4.1.3)
+    brakeman (8.1.0)
+      racc
     breadcrumbs_on_rails (4.1.0)
       railties (>= 5.0)
     browser (6.2.0)
     builder (3.3.0)
+    bundle-audit (0.2.0)
+      bundler-audit
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
+      thor (~> 1.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -345,71 +346,71 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    chartkick (5.2.0)
+    chartkick (5.3.0)
     chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
-    countries (8.0.3)
+    countries (8.1.0)
       unaccent (~> 0.3)
     country_to_locales_mapping (0.1.0)
-    crack (1.0.0)
+    crack (1.0.1)
       bigdecimal
       rexml
     crass (1.0.8)
-    csv (3.3.5)
+    csv (3.3.7)
     date (3.6.0)
-    debug (1.11.0)
+    debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
     drb (2.2.3)
     erb (6.0.7)
     erubi (1.13.1)
-    faraday (2.13.4)
-      faraday-net_http (>= 2.0, < 3.5)
+    faraday (2.15.1)
+      faraday-net_http (>= 2.0, < 3.6)
       json
       logger
     faraday-multipart (1.2.0)
       multipart-post (~> 2.0)
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.5.0)
+      net-http (~> 0.5)
     faraday-retry (2.4.0)
       faraday (~> 2.0)
-    ffi (1.17.2)
-    ffi (1.17.2-x86_64-linux-gnu)
-    formatador (1.1.1)
-    geocoder (1.8.5)
+    ffi (1.17.4-x86_64-linux-gnu)
+    formatador (1.2.3)
+      reline
+    geocoder (1.8.6)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    guard (2.19.1)
+    guard (2.20.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       logger (~> 1.6)
       lumberjack (>= 1.0.12, < 2.0)
       nenv (~> 0.1)
       notiffany (~> 0.0)
-      ostruct (~> 0.6)
       pry (>= 0.13.0)
       shellany (~> 0.0)
       thor (>= 0.18.1)
-    guard-bundler (3.0.1)
-      bundler (>= 2.1, < 3)
+    guard-bundler (3.1.0)
+      bundler (>= 2.1, < 5)
       guard (~> 2.2)
       guard-compat (~> 1.1)
     guard-compat (1.2.1)
-    guard-minitest (2.4.6)
+    guard-minitest (3.0.0)
       guard-compat (~> 1.2)
-      minitest (>= 3.0)
+      minitest (>= 5.0.4, < 7.0)
     guard-rubocop (1.5.0)
       guard (~> 2.0)
       rubocop (< 2.0)
-    hashdiff (1.2.0)
+    hashdiff (1.2.2)
+    herb (0.11.2-x86_64-linux-gnu)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    image_processing (2.0.2)
-    importmap-rails (2.2.2)
+    image_processing (2.2.0)
+    importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -422,32 +423,33 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.13.0)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
+    jbuilder (2.15.1)
+      actionview (>= 7.0.0)
+      activesupport (>= 7.0.0)
     json (3.1.0)
-    kaminari (1.2.2)
+    kaminari (1.3.3)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.2)
-      kaminari-activerecord (= 1.2.2)
-      kaminari-core (= 1.2.2)
-    kaminari-actionview (1.2.2)
+      kaminari-actionview (= 1.3.3)
+      kaminari-activerecord (= 1.3.3)
+      kaminari-core (= 1.3.3)
+    kaminari-actionview (1.3.3)
       actionview
-      kaminari-core (= 1.2.2)
-    kaminari-activerecord (1.2.2)
+      kaminari-core (= 1.3.3)
+    kaminari-activerecord (1.3.3)
       activerecord
-      kaminari-core (= 1.2.2)
-    kaminari-core (1.2.2)
+      kaminari-core (= 1.3.3)
+    kaminari-core (1.3.3)
     language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
-    listen (3.9.0)
+    listen (3.10.1)
+      logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
     loofah (2.25.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.19.5)
-    lumberjack (1.4.0)
+    lumberjack (1.4.2)
     mail (2.9.1)
       logger
       mini_mime (>= 0.1.1)
@@ -461,18 +463,19 @@ GEM
     minitest (6.1.0)
       drb (~> 2.0)
       prism (>= 1.5, < 3)
-    minitest-reporters (1.7.1)
+    minitest-reporters (1.8.0)
       ansi
       builder
-      minitest (>= 5.0)
+      minitest (>= 5.0, < 7)
       ruby-progressbar
-    mocha (2.7.1)
+    mocha (3.1.0)
       ruby2_keywords (>= 0.0.5)
     multi_json (1.21.2)
     multipart-post (2.4.1)
     nenv (0.3.0)
-    net-http (0.6.0)
-      uri
+    net-http (0.10.0)
+      net-protocol (>= 0.3.0)
+      uri (>= 0.11.1)
     net-imap (0.6.8)
       date
       net-protocol
@@ -488,28 +491,27 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    ostruct (0.6.3)
     parallel (2.3.0)
     parser (3.3.13.0)
       ast (~> 2.4.1)
       racc
-    pg (1.6.1)
-    pg (1.6.1-x86_64-linux)
+    pg (1.7.0-x86_64-linux)
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.1)
-    prism (1.9.0)
-    propshaft (1.2.1)
+    prism (2.1.0-x86_64-linux-gnu)
+    propshaft (1.3.2)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-    pry (0.15.2)
+    pry (0.16.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (6.0.2)
-    puma (6.6.1)
+      reline (>= 0.6.0)
+    public_suffix (7.0.5)
+    puma (8.1.0)
       nio4r (~> 2.0)
-    pundit (2.5.0)
+    pundit (2.5.2)
       activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (3.2.8)
@@ -574,10 +576,10 @@ GEM
     regexp_parser (2.13.1)
     reline (0.7.0)
       io-console (~> 0.5)
-    requestjs-rails (0.0.13)
+    requestjs-rails (0.0.14)
       railties (>= 7.1.0)
-    retriable (3.1.2)
-    rexml (3.4.1)
+    retriable (5.0.1)
+    rexml (3.4.4)
     rgeo (3.1.0)
     rgeo-geojson (2.2.0)
       multi_json (~> 1.15)
@@ -587,7 +589,7 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 2.0)
     rqrcode_core (2.1.0)
-    rubocop (1.92.1)
+    rubocop (1.92.2)
       json (>= 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -598,26 +600,26 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.50.0)
+    rubocop-ast (1.51.0)
       parser (>= 3.3.7.2)
-      prism (~> 1.7)
-    rubocop-erb (0.6.0)
-      better_html
+      prism (>= 1.7)
+    rubocop-erb (0.8.2)
+      herb (~> 0.9, >= 0.9.3)
       lint_roller (~> 1.1)
-      rubocop (~> 1.72, >= 1.72.1)
-    rubocop-minitest (0.38.1)
+      rubocop (~> 1.84)
+    rubocop-minitest (0.41.0)
       lint_roller (~> 1.1)
-      rubocop (>= 1.75.0, < 2.0)
+      rubocop (>= 1.89.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-performance (1.25.0)
+    rubocop-performance (1.27.0)
       lint_roller (~> 1.1)
-      rubocop (>= 1.75.0, < 2.0)
-      rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails (2.32.0)
+      rubocop (>= 1.89.0, < 2.0)
+      rubocop-ast (>= 1.47.1, < 2.0)
+    rubocop-rails (2.38.0)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
       rack (>= 1.1)
-      rubocop (>= 1.75.0, < 2.0)
+      rubocop (>= 1.89.0, < 2.0)
       rubocop-ast (>= 1.44.0, < 2.0)
     rubocop-rails-omakase (1.1.0)
       rubocop (>= 1.72)
@@ -627,7 +629,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.4)
+    ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
@@ -641,26 +643,24 @@ GEM
       marcel (>= 1.0, < 3)
       schematist (~> 1.1)
       zeitwerk (~> 2)
-    rubyzip (2.4.1)
+    rubyzip (3.7.0)
     rucaptcha (3.4.0-x86_64-linux)
       railties (>= 3.2)
       rb_sys (>= 0.9.105)
     schematist (1.1.0)
     securerandom (0.4.1)
-    selenium-webdriver (4.34.0)
+    selenium-webdriver (4.52.0)
       base64 (~> 0.2)
       logger (~> 1.4)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
+      rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     shellany (0.0.1)
-    smart_properties (1.17.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     thor (1.5.0)
     timeout (0.6.1)
     tsort (0.2.0)
-    turbo-rails (2.0.16)
+    turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
@@ -671,7 +671,7 @@ GEM
     unicode-emoji (4.3.0)
     uri (1.1.2)
     useragent (0.16.11)
-    webmock (3.25.1)
+    webmock (3.34.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -680,9 +680,8 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    with_advisory_lock (7.0.1)
+    with_advisory_lock (7.6.0)
       activerecord (>= 7.2)
-      zeitwerk (>= 2.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.8.3)
@@ -692,6 +691,8 @@ PLATFORMS
 
 DEPENDENCIES
   aliyun_proxy!
+  brakeman (~> 8.0)
+  bundle-audit
   capybara
   debug
   easy_style!

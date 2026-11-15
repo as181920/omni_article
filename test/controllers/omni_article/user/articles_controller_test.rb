@@ -8,6 +8,21 @@ module OmniArticle
       @article = omni_article_articles(:one)
     end
 
+    test "wechat sharing preserves the title without letting it close the script" do
+      title = %q{Quote "</script><script>alert(1)</script>&}
+      @article.update!(title:)
+      official_account = stub
+      platform = stub(official_accounts: stub(find_by: official_account))
+      WechatOpenPlatformProxy::ThirdPartyPlatform.stubs(:find_by).returns(platform)
+      WechatOpenPlatformProxy::OfficialAccountJssdkService.stubs(:new).with(official_account).returns(stub(config: {}))
+      get user_article_path(@article.uid), headers: { "User-Agent" => "Mozilla/5.0 MicroMessenger/8.0" }
+      source = css_select("script[type=module]").find { |script| script.text.include?("const shareData") }.text
+      sharing = JSON.parse(source.match(/const shareData = (.+);/)[1])
+
+      assert_equal title, sharing.fetch("title")
+      refute_includes source, "</script>"
+    end
+
     test "should show article" do
       get user_article_path(@article.uid)
 
