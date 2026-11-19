@@ -24,8 +24,6 @@ require "minitest/reporters"
 Minitest.load :minitest_reporter
 Minitest::Reporters.use!
 
-require_relative "support/easy_agent_mock"
-
 class ActiveSupport::TestCase
   setup do
     @session_id = Rack::Session::SessionId.new(SecureRandom.hex)

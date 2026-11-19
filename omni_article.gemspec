@@ -31,5 +31,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "pundit"
   spec.add_dependency "rails", ">= 8.1.4"
   spec.add_dependency "ransack", "~> 6.1"
-  spec.add_dependency "ruby_llm", "~> 2.0"
 end

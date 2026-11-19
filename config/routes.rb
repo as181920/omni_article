@@ -4,6 +4,10 @@ OmniArticle::Engine.routes.draw do
   get "api-docs/openapi.json", to: "api_docs#openapi", as: :openapi_spec
   get "api-docs/openapi/*path", to: "api_docs#openapi_file", as: :openapi_spec_file, format: false
 
+  namespace :discovery do
+    resources :articles, param: :uid, only: :show
+  end
+
   namespace :admin do
     resource :article_list_entry, only: :show
     resources :articles do

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= tag.title @title %>
+    <%= tag.link rel: "canonical", href: @canonical_url %>
+    <%= tag.meta name: "description", content: @summary if @summary.present? %>
+    <%= render "omni_article/discovery/styles" %>
+  </head>
+  <body>
+    <main>
+      <article>
+        <%= tag.h1 @title %>
+        <%= tag.p @summary if @summary.present? %>
+        <%# ReadableContent has applied the content allowlist. %>
+        <%= sanitize @content.html, tags: OmniArticle::ReadableContent::TAGS, attributes: OmniArticle::ReadableContent::ATTRIBUTES %>
+      </article>
+    </main>
+  </body>
+</html>

@@ -7,7 +7,6 @@ require "jbuilder"
 require "kaminari"
 require "pundit"
 require "ransack"
-require "ruby_llm"
 
 module OmniArticle
   class Engine < ::Rails::Engine
@@ -25,14 +24,6 @@ module OmniArticle
       app.config.assets.precompile += %w[
         omni_article_manifest.js
       ]
-    end
-
-    initializer "omni_article.easy_agent" do |app|
-      ActiveSupport.on_load(:easy_agent) do |easy_agent|
-        app.reloader.to_prepare do
-          OmniArticle::EasyAgentIntegration.install(easy_agent)
-        end
-      end
     end
 
     config.to_prepare do

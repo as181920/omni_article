@@ -1,0 +1,5 @@
+# <%= OmniArticle::ReadableContent.markdown_text(@title) %>
+
+<%= tag.p @summary if @summary.present? %>
+
+<%= sanitize @content.html, tags: OmniArticle::ReadableContent::TAGS, attributes: OmniArticle::ReadableContent::ATTRIBUTES %>

@@ -64,7 +64,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/omni_pay.git
-  revision: 44b9926c5a4770dbbdde1741d7a0007e64a472b0
+  revision: 6047a29674f4e171eddeeb0207676999af3d1d14
   branch: master
   specs:
     omni_pay (0.1.1)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 00de0ae7af41ecaffe9379008486d58431105203
+  revision: 580082959da52dfca803a8c991c57b486a32e5a6
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -230,7 +230,6 @@ PATH
       pundit
       rails (>= 8.1.4)
       ransack (~> 6.1)
-      ruby_llm (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -377,8 +376,6 @@ GEM
       multipart-post (~> 2.0)
     faraday-net_http (3.5.0)
       net-http (~> 0.5)
-    faraday-retry (2.4.0)
-      faraday (~> 2.0)
     ffi (1.17.4-x86_64-linux-gnu)
     formatador (1.2.3)
       reline
@@ -636,21 +633,10 @@ GEM
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
-    ruby_llm (2.1.1)
-      base64
-      faraday (>= 1.10.0, != 2.0.0)
-      faraday-multipart (>= 1)
-      faraday-net_http (>= 1)
-      faraday-retry (>= 1)
-      json (< 4)
-      marcel (>= 1.0, < 3)
-      schematist (~> 1.1)
-      zeitwerk (~> 2)
     rubyzip (3.7.0)
     rucaptcha (3.4.0-x86_64-linux)
       railties (>= 3.2)
       rb_sys (>= 0.9.105)
-    schematist (1.1.0)
     securerandom (0.4.1)
     selenium-webdriver (4.52.0)
       base64 (~> 0.2)
