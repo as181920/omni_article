@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:corp.front_end/easy_style_engine.git
-  revision: 80dc456a57a3121401f2db5dd6dcb53781f968e8
+  revision: 48cf488c6864227e6fd927d0cac0836802795168
   branch: main
   specs:
     easy_style (0.3.0)
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/aliyun_proxy.git
-  revision: bae30f0934aabf775b8916785289ae58a13617d0
+  revision: 7dfd94d86861921d8058641be0fe2e50dbf34eb2
   branch: main
   specs:
     aliyun_proxy (0.1.0)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: git@gitlab.dd-life.com:shared/tenant_auth.git
-  revision: 580082959da52dfca803a8c991c57b486a32e5a6
+  revision: ddb4210477b9d092c284fd9e103707cb615cbc12
   branch: main
   specs:
     tenant_auth (0.3.0)
@@ -719,7 +719,7 @@ DEPENDENCIES
   wechat_vendor_platform_proxy!
 
 RUBY VERSION
-   ruby 4.0.9p0
+   ruby 4.0.10p0
 
 BUNDLED WITH
    2.7.2

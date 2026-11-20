@@ -1,0 +1,38 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://spec.openapis.org/oas/3.1/dialect/base",
+  "info": {
+    "title": "OmniArticle Admin API",
+    "version": "2026-11-19",
+    "description": "Article selection and rich-text preview with the same permissions as the admin article list."
+  },
+  "servers": [
+    {
+      "url": "/omni_article",
+      "description": "EasyBiz mount"
+    }
+  ],
+  "security": [
+    {
+      "authorization": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "authorization": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "PlainUserToken or PlainUserCode, or an existing browser session accepted by the admin authentication guard."
+      }
+    }
+  },
+  "paths": {
+    "/admin/selections/articles": {
+      "$ref": "./paths/admin_article_selections.json"
+    },
+    "/admin/selections/articles/{uid}": {
+      "$ref": "./paths/admin_article_selection.json"
+    }
+  }
+}

@@ -9,6 +9,10 @@ OmniArticle::Engine.routes.draw do
   end
 
   namespace :admin do
+    namespace :selections do
+      resources :articles, param: :uid, only: %i[index show], defaults: { format: :json }
+    end
+
     resource :article_list_entry, only: :show
     resources :articles do
       scope module: :articles do

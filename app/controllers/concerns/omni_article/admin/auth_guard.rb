@@ -14,7 +14,8 @@ module OmniArticle
 
       helper_method :current_user, :current_tenant, :current_organization
 
-      rescue_from AuthenticateFailError, InvalidAuthTypeError, InvalidAuthValueError, with: :handle_authenticate_failure
+      rescue_from AuthenticateFailError, InvalidAuthTypeError, InvalidAuthValueError,
+        UserAuthService::InvalidAuthTypeError, with: :handle_authenticate_failure
       rescue_from Pundit::NotAuthorizedError, with: :handle_authorize_failure
     end
 
@@ -30,7 +31,9 @@ module OmniArticle
       end
 
       def authenticate
-        raise AuthenticateFailError, "authenticate failed." if current_user.blank?
+        user = current_user
+        raise AuthenticateFailError, "authenticate failed." unless user
+        raise AuthenticateFailError, "authenticate failed." if user.is_a?(::TenantAuth::User) && !user.active?
       end
 
       def current_user
@@ -52,7 +55,7 @@ module OmniArticle
       end
 
       def session_user
-        UserAuthService.session_user(session.to_h)
+        ::TenantAuth::ImpersonationResolver.from_session(session)&.target_user || UserAuthService.session_user(session.to_h)
       end
 
       def auth_params

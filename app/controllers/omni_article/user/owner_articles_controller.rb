@@ -4,7 +4,7 @@ module OmniArticle
 
     skip_before_action :authenticate
 
-    before_action :set_article_owner
+    before_action :set_article_owner, :check_article_owner_presence
     before_action :check_tenant_state
     before_action :set_article, :check_article_presence, only: %i[show]
 
@@ -28,12 +28,6 @@ module OmniArticle
 
       def set_article
         @article = policy_scope([:omni_article, :user, Article]).find_by(uid: params[:uid], owner: article_owner)
-      end
-
-      def check_article_presence
-        return if @article.present?
-
-        render "omni_article/user/articles/blank"
       end
   end
 end

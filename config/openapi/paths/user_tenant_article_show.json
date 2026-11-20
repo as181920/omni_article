@@ -29,12 +29,23 @@
     ],
     "responses": {
       "200": {
-        "description": "Tenant article detail",
+        "description": "Tenant article detail with the original HTML content.",
         "content": {
           "application/json": {
             "schema": {
               "$ref": "../components/schemas/article_detail.json"
             }
+          }
+        }
+      },
+      "302": {
+        "description": "Redirect to billing for an inactive tenant."
+      },
+      "404": {
+        "description": "Owner unavailable or the article does not exist within this owner's scope.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../components/schemas/error.json" }
           }
         }
       }

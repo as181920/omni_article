@@ -40,6 +40,40 @@ class OmniArticle::ArticleDiscoveryTest < ActionDispatch::IntegrationTest
     assert_includes response.body, "# #{@article.title}"
   end
 
+  test "negotiates JSON and preserves only public article content" do # rubocop:disable Minitest/MultipleAssertions
+    public_html = '<p><a href="https://example.test/catalog">Public catalog</a></p>'
+    @article.update!(summary: "<strong>Public summary</strong>", content: "#{public_html}<form>Hidden form text</form>")
+    host! "catalog.example.test"
+    path = omni_article.discovery_article_path(@article.uid)
+
+    get path, headers: { "Accept" => "application/json" }
+
+    assert_response :ok
+    assert_equal "application/json", response.media_type
+    assert_includes response.headers.fetch("Vary").split(/,\s*/), "Accept"
+    assert_equal({
+      "uid" => @article.uid,
+      "updated_at" => @article.updated_at.as_json,
+      "title" => @article.title,
+      "summary" => "Public summary",
+      "canonical_url" => "https://platform.example.test#{path}",
+      "content_html" => public_html
+    }, response.parsed_body)
+  end
+
+  test "the JSON extension follows the same public Discovery scope" do
+    path = omni_article.discovery_article_path(@article.uid, format: :json)
+    get path
+
+    assert_response :ok
+    assert_equal "application/json", response.media_type
+
+    @settings.update!(public_content_enabled: false)
+    get path
+
+    assert_response :not_found
+  end
+
   test "withdrawing the tenant's GEO permission immediately hides its articles" do
     @settings.update!(public_content_enabled: false)
 

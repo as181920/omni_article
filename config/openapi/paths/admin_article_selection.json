@@ -1,0 +1,51 @@
+{
+  "get": {
+    "summary": "Preview the rich text of a selected article",
+    "parameters": [
+      {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Original content for the selected article.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": ["id", "uid", "title", "content"],
+              "properties": {
+                "id": { "type": "integer" },
+                "uid": { "type": "string" },
+                "title": { "type": ["string", "null"] },
+                "content": {
+                  "type": "string",
+                  "description": "Stored article HTML. Consumers are responsible for safe rendering."
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Authentication required"
+      },
+      "403": {
+        "description": "Permission to view the admin article list is required"
+      },
+      "404": {
+        "description": "Article unavailable within the authenticated account's article scope",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../components/schemas/error.json" }
+          }
+        }
+      }
+    }
+  }
+}

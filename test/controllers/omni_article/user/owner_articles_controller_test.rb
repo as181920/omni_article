@@ -85,10 +85,14 @@ module OmniArticle
       assert_equal @organization_article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body.dig(0, "list_display_style")
     end
 
-    test "should show tenant article from owner route as json" do
+    test "tenant article JSON serves original content to visitors" do
+      original_content = '<table style="width: 4000px"><tr><td>Value</td></tr></table><form>Hidden</form>'
+      @article.update!(content: original_content)
+
       get user_tenant_article_path(@tenant.uid, @article.uid), as: :json
 
       assert_response :success
+      assert_equal original_content, response.parsed_body.fetch("content")
     end
 
     test "should render tenant article owner route json fields" do
@@ -97,6 +101,22 @@ module OmniArticle
       assert_equal @article.uid, @response.parsed_body["uid"]
       assert_equal @article.summary, @response.parsed_body["summary"]
       assert_equal @article.custom_settings.dig("ui", "list_display_style"), @response.parsed_body["list_display_style"]
+    end
+
+    test "article JSON is scoped to the requested owner" do
+      [@organization_article.uid, "missing"].each do |uid|
+        get user_tenant_article_path(@tenant.uid, uid), as: :json
+
+        assert_response :not_found
+        assert_equal({ "error" => { "message" => I18n.t("omni_article.article_not_found") } }, response.parsed_body)
+      end
+    end
+
+    test "an unresolved article shows the existing unavailable page with a not found status" do
+      get user_tenant_article_path(@tenant.uid, @organization_article.uid)
+
+      assert_response :not_found
+      assert_includes response.body, I18n.t("omni_article.not_exist")
     end
 
     test "should show organization article from owner route as json" do

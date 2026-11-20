@@ -15,9 +15,11 @@ module OmniArticle
 
       def set_article_owner
         owner_uid_key, owner_model = OWNER_UID_KEYS.find { |key, _klass| params[key].present? }
-        raise ActiveRecord::RecordNotFound if owner_uid_key.blank?
+        @article_owner = owner_model&.find_by(uid: params[owner_uid_key])
+      end
 
-        @article_owner = owner_model.find_by!(uid: params[owner_uid_key])
+      def check_article_owner_presence
+        render_article_not_found unless @article_owner
       end
 
       def article_owner

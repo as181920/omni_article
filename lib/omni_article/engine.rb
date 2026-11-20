@@ -12,6 +12,13 @@ module OmniArticle
   class Engine < ::Rails::Engine
     isolate_namespace OmniArticle
 
+    def self.openapi_specs
+      [
+        { name: "OmniArticle User API", path: "api-docs/openapi.json", role: "user" },
+        { name: "OmniArticle Admin API", path: "api-docs/openapi/admin.json", role: "admin" }
+      ]
+    end
+
     initializer :append_migrations do |app|
       unless app.root == root.join("test/dummy")
         config.paths["db/migrate"].expanded.each do |expanded_path|

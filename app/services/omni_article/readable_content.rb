@@ -25,16 +25,6 @@ module OmniArticle
       fragment.css("h1, h2, h3, h4, h5, h6").map { |heading| heading.text.squish }.join(" ")
     end
 
-    def embedded_html
-      fragment = Nokogiri::HTML5.fragment(html)
-      fragment.css("table").each do |table|
-        wrapper = fragment.document.create_element("div", class: "diywp-rich-text-table")
-        table.add_previous_sibling(wrapper)
-        wrapper.add_child(table)
-      end
-      fragment.to_html
-    end
-
     private
 
       def fragment

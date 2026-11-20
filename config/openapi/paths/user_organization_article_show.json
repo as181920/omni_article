@@ -29,12 +29,20 @@
     ],
     "responses": {
       "200": {
-        "description": "Organization article detail",
+        "description": "Organization article detail with the original HTML content.",
         "content": {
           "application/json": {
             "schema": {
               "$ref": "../components/schemas/article_detail.json"
             }
+          }
+        }
+      },
+      "404": {
+        "description": "Owner unavailable or the article does not exist within this owner's scope.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../components/schemas/error.json" }
           }
         }
       }

@@ -69,6 +69,14 @@
             }
           }
         }
+      },
+      "404": {
+        "description": "Owner unavailable.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../components/schemas/error.json" }
+          }
+        }
       }
     }
   }

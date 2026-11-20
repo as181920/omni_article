@@ -1,0 +1,76 @@
+{
+  "get": {
+    "tags": [
+      "Discovery"
+    ],
+    "summary": "Public article for discovery",
+    "operationId": "omniArticleDiscoveryShow",
+    "parameters": [
+      {
+        "name": "uid",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "An article within a tenant's public Discovery scope.",
+        "content": {
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "text/markdown": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "uid",
+                "title",
+                "summary",
+                "canonical_url",
+                "updated_at",
+                "content_html"
+              ],
+              "properties": {
+                "uid": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string",
+                  "description": "Plain-text article summary."
+                },
+                "canonical_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "content_html": {
+                  "type": "string",
+                  "description": "Sanitized article HTML with readable elements such as links, images and tables."
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Article unavailable within the public Discovery scope."
+      }
+    }
+  }
+}

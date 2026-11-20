@@ -14,6 +14,9 @@
   ],
   "security": [],
   "paths": {
+    "/discovery/articles/{uid}": {
+      "$ref": "./openapi/paths/discovery_article_show.json"
+    },
     "/{uid}": {
       "$ref": "./openapi/paths/shortcut_article_show.json"
     },
