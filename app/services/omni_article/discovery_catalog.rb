@@ -5,6 +5,14 @@ module OmniArticle
         Article.where(owner_type: TenantAuth::Tenant.polymorphic_name, owner_id: TenantAuth::Tenant.with_public_content.select(:id))
       end
 
+      def sitemap_manifest_key(tenant_id)
+        "omni_article:sitemap:manifest:v1:#{tenant_id}"
+      end
+
+      def expire_sitemap_manifests(tenant_ids)
+        Rails.cache.delete_multi(tenant_ids.map { |id| sitemap_manifest_key(id) })
+      end
+
       def sitemap_counts(tenant_ids)
         sitemap_scope(tenant_ids).group(:owner_id).count
       end

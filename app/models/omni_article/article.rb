@@ -11,6 +11,8 @@ module OmniArticle
     validates :content, presence: true
 
     before_validation :set_initial_attrs, on: :create
+    after_save :enqueue_sitemap_expiration
+    after_destroy :enqueue_sitemap_expiration
 
     def self.frequent_tag_list_for(owner:, limit: 10)
       return [] if owner.blank?
@@ -32,6 +34,10 @@ module OmniArticle
     end
 
     private
+
+      def enqueue_sitemap_expiration
+        ExpireSitemapManifestJob.enqueue_for(self)
+      end
 
       def set_initial_attrs
         self.uid ||= SecureRandom.base58
